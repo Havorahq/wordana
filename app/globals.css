@@ -10,5 +10,22 @@
 
 html, body {
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
+  background: url('/images/background.svg') no-repeat;
+  background-size: cover;
+  color: #fff
+}
+
+main, nav, footer {
+  @apply max-w-6xl mx-auto my-12;
+}
+
+button {
+  border-radius: 100px;
+  background: linear-gradient(83deg, #45F5A1 7.34%, rgba(69, 245, 161, 0.48) 92.07%);
+}
+
+.buttonContainer {
+  border-radius: 100px;
+  width: fit-content !important;
 }
