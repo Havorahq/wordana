@@ -16,7 +16,11 @@ const config: Config = {
       colors: {
         primary: '#45F5A1',
         secondary: 'rgba(69, 245, 161, 0.12)',
-      }
+        gamemode: 'linear-gradient(46deg, #131A14 1.97%, #253426 97.02%)'
+      },
+      boxShadow: {
+        gameshadow: '-40px 24px 64px 0px rgba(0, 0, 0, 0.85), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);',
+      },
     },
   },
   plugins: [],
