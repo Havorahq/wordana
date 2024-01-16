@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
-import Buttton from '../components/Buttton'
+import Button from '../components/Button'
 import Image from 'next/image'
 
 const GameMode = () => {
@@ -22,7 +22,7 @@ const GameMode = () => {
                   <p>Join Game</p>
                 </div>
             </div>
-            <Buttton title='Continue'/>
+            <Button title='Continue'/>
         </div>
     </div>
   )

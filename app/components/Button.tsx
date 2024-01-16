@@ -5,7 +5,7 @@ interface ButtonProps {
     title: string
 }
 
-const Buttton: React.FC<ButtonProps> = ({ title }) => {
+const Button: React.FC<ButtonProps> = ({ title }) => {
   return (
     <div className='p-3 bg-secondary buttonContainer'>
         <button className='py-5 px-7 flex items-center gap-3 text-black font-medium'>
@@ -18,4 +18,4 @@ const Buttton: React.FC<ButtonProps> = ({ title }) => {
   )
 }
 
-export default Buttton;
+export default Button;

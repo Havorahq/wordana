@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Header from './components/Header'
-import Buttton from './components/Buttton'
+import Button from './components/Button'
 import Link from 'next/link'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
           <p className='text-7xl my-7 '>Welcome to <br />Wordana!</p>
           <p className='text-xs font-normal mb-7 retro'>join the puzzle revolution and earn value in the <br />world of decentralised gaming</p>
           <Link href='/gamemode'>
-            <Buttton title='Start Playing' />
+            <Button title='Start Playing' />
           </Link>
         </div>
         <div>
