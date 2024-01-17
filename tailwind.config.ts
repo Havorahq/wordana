@@ -16,6 +16,8 @@ const config: Config = {
       colors: {
         primary: '#45F5A1',
         secondary: 'rgba(69, 245, 161, 0.12)',
+        grey: 'rgba(243, 244, 246, 0.20)',
+        borderGray: '#E0E0E0',
         gamemode: 'linear-gradient(46deg, #131A14 1.97%, #253426 97.02%)'
       },
       boxShadow: {
