@@ -12,7 +12,7 @@ const GameInvites = () => {
               <div className='flex gap-3'>
                 <Image src='/images/avatar.svg' alt='Avatar' width={44} height={44}/>
                 <div>
-                  <p className='retro text-sm'>JOSH.30TLC</p>
+                  <p className='retro text-sm'>JOSH.30WRD</p>
                   <p className='retro text-xs' style={{ fontSize: 8 }}>1 mins ago</p>
                 </div>
               </div>
