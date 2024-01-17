@@ -42,7 +42,7 @@ button {
 
 .retro {
   font-family: "Press Start 2P", system-ui;
-  font-size: 8.2px;
+  /* font-size: 8.2px; */
 }
 
 .gamemode {
@@ -51,4 +51,12 @@ button {
 
 .gamemode:hover {
   border: 3px solid #45F5A1;
+}
+
+.activeMode {
+  border: 3px solid #45F5A1;
+}
+
+.width {
+  width: 782px !important;
 }
