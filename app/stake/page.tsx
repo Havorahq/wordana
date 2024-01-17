@@ -1,9 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import Button from '../components/Button'
-import Link from 'next/link'
 
-const InvitePlayer = () => {
+const Stake = () => {
   return (
     <div>
         <Header />
@@ -15,18 +14,18 @@ const InvitePlayer = () => {
             </div>
 
             <form className='py-5 width'>
-                <label className='block mb-2 text-sm text-gray-400'>Enter Player Wallet Address</label>
+                <label className='block mb-2 text-sm text-gray-400'>Amount of TLC to stake</label>
                 <input 
                     className='width border border-borderGrey rounded-lg bg-grey p-2'
-                    placeholder='2be112rs455sfrsvv2mnfh'
+                    placeholder='10'
                 />
+                <p className='text-xs mt-1 text-gray-400'>You will have 190 remaining</p>
             </form>
-            <Link href='/stake'>
-                <Button title='Invite Player' />
-            </Link> 
+            
+            <Button title='Stake TLC' />
         </div>
     </div>
   )
 }
 
-export default InvitePlayer
+export default Stake

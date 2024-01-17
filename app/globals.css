@@ -53,6 +53,10 @@ button {
   border: 3px solid #45F5A1;
 }
 
+.activeMode {
+  border: 3px solid #45F5A1;
+}
+
 .width {
   width: 782px !important;
 }
