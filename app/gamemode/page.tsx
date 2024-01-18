@@ -14,7 +14,10 @@ const GameMode = () => {
         <Header />
         <div className='flex flex-col items-center h-screen gap-3 m-32'>
             <div className='flex items-center justify-center gap-5 w-full mb-9'>
-                <div className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md`}>
+                <div 
+                  className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md ${href === '/instruction' ? 'activeMode' : ''}`}
+                  onClick={() => setHref('/instruction')}
+                >
                   <Image src='/images/singlePlayer.svg' alt='Single player' width={72} height={72}/>
                   <p>Single Player</p>
                 </div>
