@@ -13,8 +13,8 @@ const Result = () => {
         <Header />
         <div>
             <div className='flex flex-col items-center'>
-                {/* <Won />  */}
-                <Lost />
+                <Won /> 
+                {/* <Lost /> */}
                 <Link href='/'>
                     <Button title='Back To Home' />
                 </Link>

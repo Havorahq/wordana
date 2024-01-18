@@ -8,10 +8,10 @@ const Instruction = () => {
     return (
         <div>
             <Header />
-            <div className='flex flex-col h-screen items-center gap-3 m-20'>
+            <div className='flex flex-col h-screen items-center gap-3 m-12'>
                 <div className='p-4 border rounded-lg'>
                     <p className='uppercase retro text-xxs text-primary'>Game rules:</p>
-                    <p className='mt-1 retro text-xxs leading-relaxed'>
+                    <p className='mt-1 retro leading-relaxed' style={{ fontSize: 8 }}>
                         Try guessing the correct word six(6) tries. <br />
                         After each try, the tiles changes color to show <br />
                         you how close you were to the correct word, you <br />
