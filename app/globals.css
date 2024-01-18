@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,24 +11,36 @@
   box-sizing: border-box;
 }
 
-html, body {
+@font-face {
+  font-family: "small_pixel-7";
+  src: url("../public/fonts/small_pixel-7.ttf");
+}
+
+html,
+body {
   width: 100vw;
   max-height: 100vh;
-  background: url('/images/background.svg') no-repeat;
+  background: url("/images/background.svg") no-repeat;
   background-size: cover;
   color: #fff;
   font-family: "DM Sans", sans-serif;
   overflow: hidden;
 }
 
-main, nav, footer {
+main,
+nav,
+footer {
   @apply max-w-6xl mx-auto py-3;
   max-height: 100vh !important;
 }
 
 button {
   border-radius: 100px;
-  background: linear-gradient(83deg, #45F5A1 7.34%, rgba(69, 245, 161, 0.48) 92.07%);
+  background: linear-gradient(
+    83deg,
+    #45f5a1 7.34%,
+    rgba(69, 245, 161, 0.48) 92.07%
+  );
 }
 
 .buttonContainer {
@@ -46,9 +58,9 @@ button {
 }
 
 .gamemode {
-  background: linear-gradient(46deg, #131A14 1.97%, #253426 97.02%);
+  background: linear-gradient(46deg, #131a14 1.97%, #253426 97.02%);
 }
 
 .gamemode:hover {
-  border: 3px solid #45F5A1;
+  border: 3px solid #45f5a1;
 }
