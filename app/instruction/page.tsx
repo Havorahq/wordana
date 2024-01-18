@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Button from '../components/Button';
 
 const Instruction = () => {  
-    const words = ['W', 'O', 'R', 'D', 'S'];
 
     return (
         <div>
@@ -19,13 +18,6 @@ const Instruction = () => {
                         get 20 points for each correct word and spot.
                     </p>
                 </div>
-                {/* <div className='flex items-center mt-2 gap-3'>
-                    {words.map(w => (
-                        <p className='p-4 py-2 text-4xl text-black font-bold rounded-lg bg-borderGray'>
-                            {w}
-                        </p>
-                    ))}
-                </div> */}
                 <div>
                     <div className='flex items-center mt-2 gap-3'>
                         <div className='text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box'>
