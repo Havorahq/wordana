@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,5 +13,59 @@
 
 html, body {
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
+  background: url('/images/background.svg') no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+}
+
+main, nav, footer {
+  @apply max-w-6xl mx-auto py-3;
+  max-height: 100vh !important;
+}
+
+button {
+  border-radius: 100px;
+  background: linear-gradient(83deg, #45F5A1 7.34%, rgba(69, 245, 161, 0.48) 92.07%);
+}
+
+.buttonContainer {
+  border-radius: 100px;
+  width: fit-content !important;
+}
+
+.buttonContainer:hover {
+  background: #45f5a036;
+}
+
+.retro {
+  font-family: "Press Start 2P", system-ui;
+  /* font-size: 8.2px; */
+}
+
+.gamemode {
+  background: linear-gradient(46deg, #131A14 1.97%, #253426 97.02%);
+}
+
+.gamemode:hover {
+  border: 3px solid #45F5A1;
+}
+
+.activeMode {
+  border: 3px solid #45F5A1;
+}
+
+.width {
+  width: 782px !important;
+}
+
+.text-xxs {
+  font-size: 10px;
+}
+
+.box {
+  width: 70px !important;
+  height: 70px !important;
 }
