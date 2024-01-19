@@ -60,3 +60,12 @@ button {
 .width {
   width: 782px !important;
 }
+
+.text-xxs {
+  font-size: 10px;
+}
+
+.box {
+  width: 70px !important;
+  height: 70px !important;
+}
