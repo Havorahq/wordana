@@ -8,11 +8,11 @@ const InvitePlayer = () => {
     <div>
         <Header />
         <div className='flex flex-col h-screen items-center gap-3 m-32'>
-            <div className='border border-borderGrey p-5 rounded-lg text-sm width'>
+            {/* <div className='border border-borderGrey p-5 rounded-lg text-sm width'>
                 <p>Total Balance</p>
                 <p className='my-5'>WRD - 200</p>
                 <p className='text-gray-400'>$ 200</p>
-            </div>
+            </div> */}
 
             <form className='py-5 width'>
                 <label className='block mb-2 text-sm text-gray-400'>Enter Player Wallet Address</label>
