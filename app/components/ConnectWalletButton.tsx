@@ -7,7 +7,6 @@ import Button from './Button';
 
 const ConnectWalletButton: React.FC = () => {
   const [account, setAccount] = useState<string | null>(null);
-  console.log('Account: ', account)
 
   const connectWallet = async () => {
     try {
