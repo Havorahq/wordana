@@ -2,7 +2,8 @@ import React from 'react'
 import { HiOutlineArrowSmRight } from 'react-icons/hi';
 
 interface ButtonProps {
-    title: string
+    title: string;
+    disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({ title }) => {

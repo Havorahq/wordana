@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Button from './Button';
 import Link from 'next/link';
+import ConnectWalletButton from './ConnectWalletButton';
 
 const Header = () => {
   return (
@@ -17,8 +18,8 @@ const Header = () => {
             <p className='retro text-xs'>Daniel</p>
           </div>
         </div> */}
-
-        <Button title='Connect Wallet'/>
+        
+        <ConnectWalletButton />
     </div>
   )
 }
