@@ -7,9 +7,11 @@ import Button from './Button';
 
 const ConnectWalletButton: React.FC = () => {
   const [account, setAccount] = useState<string | null>(null);
+  const [connect, setConnect] = useState<boolean | null>(false);
 
   const connectWallet = async () => {
     try {
+      setConnect(true);
       const web3 = await getWeb3();
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0] || null);
@@ -29,8 +31,8 @@ const ConnectWalletButton: React.FC = () => {
       }
     };
 
-    checkWallet();
-  }, []);
+    connect && checkWallet();
+  }, [connect]);
 
   return (
     <div onClick={connectWallet}>
