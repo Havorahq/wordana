@@ -1,13 +1,50 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import { useMyContext } from '../context/Context'
+import getWeb3 from '../services/web3';
+import { CONTRACT_ADDRESS } from '../smart-contract/constants';
+import { CONTRACT_ABI } from '../smart-contract/wordanamain.abi';
+import Web3 from 'web3'
+
 
 const Stake = () => {
-    const { data } = useMyContext();
-    console.log('Address:', data)
+    const { data: address } = useMyContext();
+    const [web3, setWeb3] = useState<Web3 | null>(null);
+    const [contract, setContract] = useState<any | null>(null);
+    const [token, setToken] = useState<string>("")
+    console.log('Address:', address)
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.target;
+        setToken(value)
+    }
+
+    const callSmartContractFunction = async () => {
+        try {
+          if (web3 && contract) {
+            const result = await contract.methods.createGameInstance(address, token).call();
+            console.log('Smart contract function result:', result);
+          }
+        } catch (error) {
+          console.error('Error calling smart contract function:', error);
+        }
+    };
+
+    useEffect(() => {
+        const initWeb3 = async () => {
+            const web3Instance = await getWeb3();
+            setWeb3(web3Instance);
+
+            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ADDRESS)
+            setContract(contractInstance);
+        }
+
+        initWeb3();
+    }, [])
+
 
     return (
         <div>
@@ -24,22 +61,19 @@ const Stake = () => {
                     <input 
                         className='width border border-borderGrey rounded-lg bg-grey p-2'
                         placeholder='10'
+                        name='token'
+                        value={token}
+                        onChange={handleChange}
                     />
                     <p className='text-xs mt-1 text-gray-400'>You will have 190 remaining</p>
                 </form>
-                
-                <Button title='Stake WRD' />
+                <div onClick={callSmartContractFunction}>
+                    <Button title='Stake WRD' />
+                </div>
             </div>
         </div>
     )
 }
 
-export default Stake
-
-
-
-// // YourComponent.tsx
-// import YourContractABI from '../path-to-your-contract/YourContractABI.json';
-
-// const contractAddress = '0xYourContractAddress';
-// const yourContract = new web3.eth.Contract(YourContractABI, contractAddress);
+export default Stake;
+  
