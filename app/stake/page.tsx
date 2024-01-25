@@ -6,7 +6,7 @@ import Button from '../components/Button'
 import { useMyContext } from '../context/Context'
 import getWeb3 from '../services/web3';
 import { CONTRACT_ADDRESS } from '../smart-contract/constants';
-import { CONTRACT_ABI } from '../smart-contract/wordanamain.abi';
+import CONTRACT_ABI from '../smart-contract/wordanamain-abi.json';
 import Web3 from 'web3'
 
 
@@ -15,7 +15,7 @@ const Stake = () => {
     const [web3, setWeb3] = useState<Web3 | null>(null);
     const [contract, setContract] = useState<any | null>(null);
     const [token, setToken] = useState<string>("")
-    console.log('Address:', address)
+    // console.log('Address:', address)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
@@ -38,7 +38,7 @@ const Stake = () => {
             const web3Instance = await getWeb3();
             setWeb3(web3Instance);
 
-            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ADDRESS)
+            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ADDRESS, CONTRACT_ABI)
             setContract(contractInstance);
         }
 
