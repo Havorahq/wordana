@@ -1,79 +1,127 @@
-'use client'
+"use client";
 
-import React, { useEffect, useState } from 'react'
-import Header from '../components/Header'
-import Button from '../components/Button'
-import { useMyContext } from '../context/Context'
-import getWeb3 from '../services/web3';
-import { CONTRACT_ADDRESS } from '../smart-contract/constants';
-import CONTRACT_ABI from '../smart-contract/wordanamain-abi.json';
-import Web3 from 'web3'
-
+import React, { useEffect, useState } from "react";
+import Header from "../components/Header";
+import Button from "../components/Button";
+import { useMyContext } from "../context/Context";
+import getWeb3 from "../services/web3";
+import {
+  CONTRACT_ADDRESS,
+  TOKEN_CONTRACT_ADDRESS,
+} from "../smart-contract/constants";
+import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
+import TOKEN_ABI from "../smart-contract/token-abi.json";
+import Web3 from "web3";
+import {
+  useAccount,
+  useConnect,
+  //   useContract,
+  useContractRead,
+  useContractWrite,
+  useNetwork,
+  useWaitForTransaction,
+} from "wagmi";
+import { ethers } from "ethers";
 
 const Stake = () => {
-    const { data: address } = useMyContext();
-    const [web3, setWeb3] = useState<Web3 | null>(null);
-    const [contract, setContract] = useState<any | null>(null);
-    const [token, setToken] = useState<string>("")
-    // console.log('Address:', address)
+  const { data: address } = useMyContext();
+  const [web3, setWeb3] = useState<Web3 | null>(null);
+  const [contract, setContract] = useState<any | null>(null);
+  const [token, setToken] = useState<string>("");
+  //Stake Function
+  const {
+    data: stakeData,
+    write: createGameInstance,
+    isLoading: isStakeLoading,
+    isSuccess: isStakeStarted,
+    error: stakeError,
+  } = useContractWrite({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: "createGameInstance",
+  });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = e.target;
-        setToken(value)
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setToken(value);
+  };
 
-    const callSmartContractFunction = async () => {
-        try {
-          if (web3 && contract) {
-            const result = await contract.methods.createGameInstance(address, token).call();
-            console.log('Smart contract function result:', result);
-          }
-        } catch (error) {
-          console.error('Error calling smart contract function:', error);
-        }
-    };
+  //   const callSmartContractFunction = async () => {
+  //     try {
+  //       if (web3 && contract) {
+  //         console.log(address, token, "contract-call", contract);
+  //         const result = await contract.methods
+  //           .createGameInstance(address, token)
+  //           .send();
+  //         console.log("Smart contract function result:", result);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error calling smart contract function:", error);
+  //     }
+  //   };
 
-    useEffect(() => {
-        const initWeb3 = async () => {
-            const web3Instance = await getWeb3();
-            setWeb3(web3Instance);
+  const stakeTokens = async () => {
+    createGameInstance({
+      args: [address, ethers.utils.parseEther(token)],
+    });
+  };
 
-            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ADDRESS, CONTRACT_ABI)
-            setContract(contractInstance);
-        }
+  useEffect(() => {
+    console.log("stakeData:", stakeData);
+    console.log("isStakeLoading:", isStakeLoading);
+    console.log("isStakeStarted", isStakeStarted);
+    console.log("stakeError:", stakeError);
+    console.log("___________");
+  }, [stakeData, isStakeLoading, isStakeStarted]);
 
-        initWeb3();
-    }, [])
+  //   useEffect(() => {
+  //     const initWeb3 = async () => {
+  //       const web3Instance = await getWeb3();
+  //       setWeb3(web3Instance);
 
+  //       const contractInstance = new web3Instance.eth.Contract(
+  //         CONTRACT_ABI,
+  //         CONTRACT_ADDRESS
+  //       );
+  //       setContract(contractInstance);
+  //       console.log(contractInstance, "contract-instance");
+  //       console.log(contract, "contract");
+  //     };
 
-    return (
-        <div>
-            <Header />
-            <div className='flex flex-col h-screen items-center gap-3 m-32'>
-                <div className='border border-borderGrey p-5 rounded-lg text-sm width'>
-                    <p>Total Balance</p>
-                    <p className='my-5'>WRD - 200</p>
-                    <p className='text-gray-400'>$ 200</p>
-                </div>
+  //     initWeb3();
+  //   }, []);
 
-                <form className='py-5 width'>
-                    <label className='block mb-2 text-sm text-gray-400'>Amount of WRD to stake</label>
-                    <input 
-                        className='width border border-borderGrey rounded-lg bg-grey p-2'
-                        placeholder='10'
-                        name='token'
-                        value={token}
-                        onChange={handleChange}
-                    />
-                    <p className='text-xs mt-1 text-gray-400'>You will have 190 remaining</p>
-                </form>
-                <div onClick={callSmartContractFunction}>
-                    <Button title='Stake WRD' />
-                </div>
-            </div>
+  return (
+    <div>
+      <Header />
+      <div className="flex flex-col h-screen items-center gap-3 m-32">
+        <div className="border border-borderGrey p-5 rounded-lg text-sm width">
+          <p>Total Balance</p>
+          <p className="my-5">WRD - 200</p>
+          <p className="text-gray-400">$ 200</p>
         </div>
-    )
-}
+
+        <form className="py-5 width">
+          <label className="block mb-2 text-sm text-gray-400">
+            Amount of WRD to stake
+          </label>
+          <input
+            className="width border border-borderGrey rounded-lg bg-grey p-2"
+            placeholder="10"
+            name="token"
+            value={token}
+            onChange={handleChange}
+          />
+          <p className="text-xs mt-1 text-gray-400">
+            You will have 190 remaining
+          </p>
+        </form>
+        <div onClick={stakeTokens}>
+          <Button title="Stake WRD" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Stake;
-  

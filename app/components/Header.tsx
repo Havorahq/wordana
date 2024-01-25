@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Button from './Button';
 import Link from 'next/link';
-import ConnectWalletButton from './ConnectWalletButton';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 const Header = () => {
   return (
@@ -19,7 +19,7 @@ const Header = () => {
           </div>
         </div> */}
         
-        <ConnectWalletButton />
+       <ConnectButton />;
     </div>
   )
 }
