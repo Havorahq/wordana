@@ -25,6 +25,7 @@ const Stake = () => {
     const callSmartContractFunction = async () => {
         try {
           if (web3 && contract) {
+            console.log('Function:', contract.functions, 'Method:', contract.methods)
             const result = await contract.methods.createGameInstance(address, token).call();
             console.log('Smart contract function result:', result);
           }
@@ -38,7 +39,7 @@ const Stake = () => {
             const web3Instance = await getWeb3();
             setWeb3(web3Instance);
 
-            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ADDRESS, CONTRACT_ABI)
+            const contractInstance = new web3Instance.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS)
             setContract(contractInstance);
         }
 
