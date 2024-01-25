@@ -4,7 +4,7 @@ import Web3 from 'web3';
 
 interface CustomWindow extends Window {
   ethereum?: any; // Add the ethereum property to the Window interface
-  web3?: any; // Add the web3 property to the Window interface
+  web3?: Web3; // Add the web3 property to the Window interface
 }
 
 let web3: Web3 | null = null;
