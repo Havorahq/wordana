@@ -37,7 +37,7 @@ const WordInputGrid: React.FC<WordInputGridProps> =({isActive, setGuess, guess})
                 <input type="text" className="text-black fixed top-0 right-0 opacity-0"  maxLength={5} value={guess} 
                     onChange={(e)=>{
                         if (setGuess){
-                            setGuess(e.target.value)
+                            setGuess(e.target.value.toLowerCase())
                         }
                     }} 
                     ref={inputRef}/>
