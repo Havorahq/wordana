@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
 import { useContractRead } from "wagmi";
-
+import { words } from "../smart-contract/constants";
 import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
 
 import CONTRACT_ABI2 from "../smart-contract/wordanamain2-abi.json";
@@ -23,6 +23,9 @@ const Instruction = () => {
     args: ["password"],
   });
 
+  const word_of_the_day_index: number = word_of_the_day_Data as number;
+
+  const word_of_the_day = words[word_of_the_day_index];
 
   return (
     <div>

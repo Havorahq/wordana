@@ -30,8 +30,8 @@ const { chains, publicClient } = configureChains(
   [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
 );
 const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
-  projectId: "YOUR_PROJECT_ID",
+  appName: "Wordana",
+  projectId: "b1ca4e750e5de2aa789e1b2533d92ac4",
   chains,
 });
 const wagmiConfig = createConfig({
