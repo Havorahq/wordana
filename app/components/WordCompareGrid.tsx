@@ -9,7 +9,7 @@ interface WordInputGridProps {
 
 const WordCompareGrid: React.FC<WordInputGridProps> =({wordGuessed, wordToGuess})=> {
 
-    const boxStyle = 'flex justify-center items-center rounded-lg bg-transparent border w-[70px] h-[70px] uppercase text-black'
+    const boxStyle = 'flex justify-center items-center rounded-lg border w-[70px] h-[70px] uppercase text-black'
     const wrongLetterStyle = boxStyle + ' bg-white'
     const rightLetterWrongPositionStyle = boxStyle + ' bg-yellow-500 border-0'
     const rightLetterRightPositionStyle = boxStyle + ' bg-green-500 border-0'

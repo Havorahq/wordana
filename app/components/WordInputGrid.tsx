@@ -25,7 +25,7 @@ const WordInputGrid: React.FC<WordInputGridProps> =({isActive, setGuess, guess})
     return (
     <div>
         {
-            isActive && guess? (
+            isActive && guess !== undefined? (
                 <div>
                     <div className="flex w-full justify-between gap-3" onClick={handleClick}>
                         <p className={boxStyle}>{guess.charAt(0)}</p>

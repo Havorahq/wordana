@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import GameBoard from '../components/GameBoard'
 import Button from '../components/Button'
@@ -37,7 +37,6 @@ const Game = () => {
             prevGuesses.push(newGuess)
             setGuesses(prevGuesses)
             setCurrentGuess('')
-            console.log(prevGuesses)
         } else{
             alert('submitted word must have 5 letters')
         }
