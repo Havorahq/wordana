@@ -55,9 +55,9 @@ const Game = () => {
                         </div>
                     ))
                 }
-                <WordInputGrid isActive setGuess={setCurrentGuess}/>
+                <WordInputGrid isActive setGuess={setCurrentGuess} guess={currentGuess}/>
                 {
-                    guesses.length < 6 && <RenderEmptyWordGrid numberOfTimes={6-guesses.length}/>
+                    guesses.length < 6 && <RenderEmptyWordGrid numberOfTimes={5-guesses.length}/>
                 }
                 <div onClick={()=>handleSubmission()}>
                     <Button title='Submit'/>
