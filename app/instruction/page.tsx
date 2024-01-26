@@ -12,16 +12,17 @@ import CONTRACT_ABI2 from "../smart-contract/wordanamain2-abi.json";
 
 const Instruction = () => {
   const {
-    data: stakeData,
-    isLoading: isStakeLoading,
-    isSuccess: isStakeStarted,
-    error: stakeError,
+    data: word_of_the_day_Data,
+    isLoading: word_of_the_day_Data_Loading,
+    isSuccess: word_of_the_day_Data_Started,
+    error: word_of_the_day_Day_Error,
   } = useContractRead({
     address: SINGLE_CONTRACT_ADDRESS,
     abi: CONTRACT_ABI2,
     functionName: "getWordOfTheDay",
     args: ["password"],
   });
+
 
   return (
     <div>
