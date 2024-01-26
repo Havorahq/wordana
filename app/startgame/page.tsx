@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -82,11 +83,14 @@ const Game = () => {
           <div onClick={submitWord}>
             <Button title="Submit" />
           </div>
+
         </div>
         <GameBoard />
       </div>
     </div>
+
   );
 };
+
 
 export default Game;
