@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
-import { useMyContext } from "../context/Context";
-import getWeb3 from "../services/web3";
+
 import {
   CONTRACT_ADDRESS,
   TOKEN_CONTRACT_ADDRESS,
@@ -24,7 +23,7 @@ import {
 import { ethers } from "ethers";
 
 const Stake = () => {
-  const { data: address } = useMyContext();
+  //   const { data: address } = useMyContext();
   const [web3, setWeb3] = useState<Web3 | null>(null);
   const [contract, setContract] = useState<any | null>(null);
   const [token, setToken] = useState<string>("");
@@ -41,55 +40,29 @@ const Stake = () => {
     functionName: "createGameInstance",
   });
 
+  const { address } = useAccount();
+
+  const {
+    data: approvaleData,
+    isLoading: approvalLoading,
+    isSuccess: approvalStarted,
+    error: arrovalError,
+  } = useContractRead({
+    address: TOKEN_CONTRACT_ADDRESS,
+    functionName: "allowance",
+    args: [address, CONTRACT_ADDRESS],
+  });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setToken(value);
   };
-
-  //   const callSmartContractFunction = async () => {
-  //     try {
-  //       if (web3 && contract) {
-  //         console.log(address, token, "contract-call", contract);
-  //         const result = await contract.methods
-  //           .createGameInstance(address, token)
-  //           .send();
-  //         console.log("Smart contract function result:", result);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error calling smart contract function:", error);
-  //     }
-  //   };
 
   const stakeTokens = async () => {
     createGameInstance({
       args: [address, ethers.utils.parseEther(token)],
     });
   };
-
-  useEffect(() => {
-    console.log("stakeData:", stakeData);
-    console.log("isStakeLoading:", isStakeLoading);
-    console.log("isStakeStarted", isStakeStarted);
-    console.log("stakeError:", stakeError);
-    console.log("___________");
-  }, [stakeData, isStakeLoading, isStakeStarted]);
-
-  //   useEffect(() => {
-  //     const initWeb3 = async () => {
-  //       const web3Instance = await getWeb3();
-  //       setWeb3(web3Instance);
-
-  //       const contractInstance = new web3Instance.eth.Contract(
-  //         CONTRACT_ABI,
-  //         CONTRACT_ADDRESS
-  //       );
-  //       setContract(contractInstance);
-  //       console.log(contractInstance, "contract-instance");
-  //       console.log(contract, "contract");
-  //     };
-
-  //     initWeb3();
-  //   }, []);
 
   return (
     <div>
