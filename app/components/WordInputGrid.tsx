@@ -5,7 +5,7 @@ import { useState, useRef, Dispatch, SetStateAction, useEffect } from "react"
 interface WordInputGridProps {
     isActive: boolean,
     setGuess?: Dispatch<SetStateAction<string>>,
-    guess: string
+    guess?: string
 }
 
 const WordInputGrid: React.FC<WordInputGridProps> =({isActive, setGuess, guess})=> {
@@ -25,7 +25,7 @@ const WordInputGrid: React.FC<WordInputGridProps> =({isActive, setGuess, guess})
     return (
     <div>
         {
-            isActive? (
+            isActive && guess? (
                 <div>
                     <div className="flex w-full justify-between gap-3" onClick={handleClick}>
                         <p className={boxStyle}>{guess.charAt(0)}</p>
