@@ -11,14 +11,16 @@ import { useMyContext } from "../context/Context";
 import CONTRACT_ABI from "../smart-contract/wordana-contract-abi.json";
 import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { useRouter } from "next/navigation";
+import { Oval } from 'react-loader-spinner'
 
 import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
 
 const Instruction = () => {
   const { data, setData } = useMyContext();
   const [event, setNewEvent] = useState();
-
+  const [loading, setLoading] = useState(false);
   const {
+    data: word_of_the_day_Data,
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
     error: word_of_the_day_Day_Error,
@@ -31,15 +33,22 @@ const Instruction = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    if (word_of_the_day_Data) {
+      setData(words[word_of_the_day_Data as unknown as number]);
+      router.push("/startgame");
+      setLoading(false)
+    }
+  }, [event, router]);
+
   const validateCall = async () => {
+    setLoading(true);
     _appkey({
       args: ["password"],
     });
   };
 
-  console.log(event, "word-guess");
-
-  const word_of_the_day = event;
+  console.log(word_of_the_day_Data, "word-guess");
 
   return (
     <div>
@@ -121,9 +130,22 @@ const Instruction = () => {
           </p>
         </div>
 
-        <div onClick={validateCall}>
-          <Button title="Initialize Game Environment"></Button>
-        </div>
+        
+        {
+          !loading ?
+          <div onClick={validateCall} className="mt-8">
+            <Button title="Initialize Game"></Button>
+          </div> :
+          <div className="mt-8">
+            <Oval
+              height="50"
+              width="50"
+              radius="9"
+              color="#45F5A1"
+              ariaLabel="loading"
+            />
+          </div>
+        }
       </div>
     </div>
   );
