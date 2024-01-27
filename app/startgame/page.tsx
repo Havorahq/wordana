@@ -7,11 +7,13 @@ import Button from "../components/Button";
 import WordInputGrid from "../components/WordInputGrid";
 import WordCompareGrid from "../components/WordCompareGrid";
 import { useMyContext } from "../context/Context";
+import { useRouter } from "next/navigation";
 interface Guess {
   wordGuessed: string;
 }
 
 const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
+
   const { numberOfTimes } = props;
   const renderItems = () => {
     const items = [];
@@ -29,6 +31,7 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 };
 
 const Game = () => {
+  const router = useRouter();
   const { data: wordToGuess, setData } = useMyContext();
   console.log(wordToGuess, "wordToGuess_in_game_page");
   const [currentGuess, setCurrentGuess] = useState("");
@@ -38,6 +41,7 @@ const Game = () => {
   useEffect(()=>{
     if (guessesMade > 6){
       // redirect to fail screen
+      router.push('/lost')
       console.log('fail')
     }
   }, [guessesMade])
@@ -46,6 +50,7 @@ const Game = () => {
     if (currentGuess.length === 5) {
       if (currentGuess === wordToGuess){
         // redirect to won screen
+        router.push('/result')
         console.log('success')
       }
       let prevGuesses = guesses;
