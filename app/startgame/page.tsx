@@ -33,14 +33,27 @@ const Game = () => {
   console.log(wordToGuess, "wordToGuess_in_game_page");
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
+  const [guessesMade, setGuessesMade] = useState(0)
+
+  useEffect(()=>{
+    if (guessesMade > 6){
+      // redirect to fail screen
+      console.log('fail')
+    }
+  }, [guessesMade])
 
   const handleSubmission = () => {
     if (currentGuess.length === 5) {
+      if (currentGuess === wordToGuess){
+        // redirect to won screen
+        console.log('success')
+      }
       let prevGuesses = guesses;
       const newGuess: Guess = { wordGuessed: currentGuess };
       prevGuesses.push(newGuess);
       setGuesses(prevGuesses);
       setCurrentGuess("");
+      setGuessesMade(preVal => preVal + 1)
     } else {
       alert("submitted word must have 5 letters");
     }
