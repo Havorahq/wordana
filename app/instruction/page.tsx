@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractRead, useContractEvent } from "wagmi";
+import { useContractRead, useContractEvent, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { useMyContext } from "../context/Context";
@@ -17,16 +17,28 @@ const Instruction = () => {
   const { data, setData } = useMyContext();
   const [event, setNewEvent] = useState();
   const {
-    data: word_of_the_day_Data,
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
     error: word_of_the_day_Day_Error,
-  } = useContractRead({
+    write: _appkey
+  } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    functionName: "getWordOfTheDay",
-    args: ["password"],
+    functionName: "getWordOfTheDay"
   });
+
+  
+
+    useEffect(()=>{
+      const validateCall = async () => {
+        _appkey({
+          args: ["password"],
+        });
+      }
+
+      console.log('calling the func')
+      validateCall()
+    }, [_appkey])
 
   useContractEvent({
     address: CONTRACT_ADDRESS,
@@ -43,8 +55,6 @@ const Instruction = () => {
   // const word_of_the_day = words[word_of_the_day_index];
 
   // setData(word_of_the_day_Data);
-
-  console.log(word_of_the_day_Data);
 
   return (
     <div>
