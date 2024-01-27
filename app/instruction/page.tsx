@@ -4,19 +4,19 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractRead, useContractEvent, useContractWrite } from "wagmi";
+import { useContractRead, useAccount, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
+import { TOKEN_CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { useMyContext } from "../context/Context";
-import CONTRACT_ABI from "../smart-contract/wordana-contract-abi.json";
-import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
+import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
+import TOKEN_ABI from "../smart-contract/token-abi.json";
 import { useRouter } from "next/navigation";
-import { Oval } from 'react-loader-spinner'
-
-import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
+import { Oval } from "react-loader-spinner";
 
 const Instruction = () => {
   const { data, setData } = useMyContext();
+  const account = useAccount();
   const [event, setNewEvent] = useState();
   const [loading, setLoading] = useState(false);
   const {
@@ -31,15 +31,26 @@ const Instruction = () => {
     functionName: "getWordOfTheDay",
   });
 
+  // const { data: allowance, refetch } = useContractRead({
+  //   address: TOKEN_CONTRACT_ADDRESS,
+  //   abi: TOKEN_ABI,
+  //   functionName: "allowance",
+  //   args: [CONTRACT_ADDRESS, account],
+  // });
+
+  // console.log(allowance, "allowance");
+
   const router = useRouter();
 
   useEffect(() => {
     if (word_of_the_day_Data) {
-      setData(words[word_of_the_day_Data as unknown as number]);
+      console.log(words, word_of_the_day_Data, "inside useeffect");
+
+      setData(words[10 as unknown as number]);
       router.push("/startgame");
-      setLoading(false)
+      setLoading(false);
     }
-  }, [event, router]);
+  }, [word_of_the_day_Data, router]);
 
   const validateCall = async () => {
     setLoading(true);
@@ -48,7 +59,7 @@ const Instruction = () => {
     });
   };
 
-  console.log(word_of_the_day_Data, "word-guess");
+  console.log(word_of_the_day_Data, "word-word_of_the_day_Data");
 
   return (
     <div>
@@ -130,12 +141,11 @@ const Instruction = () => {
           </p>
         </div>
 
-        
-        {
-          !loading ?
+        {!loading ? (
           <div onClick={validateCall} className="mt-8">
             <Button title="Initialize Game"></Button>
-          </div> :
+          </div>
+        ) : (
           <div className="mt-8">
             <Oval
               height="50"
@@ -145,7 +155,7 @@ const Instruction = () => {
               ariaLabel="loading"
             />
           </div>
-        }
+        )}
       </div>
     </div>
   );
