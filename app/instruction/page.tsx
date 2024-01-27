@@ -10,51 +10,36 @@ import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { useMyContext } from "../context/Context";
 import CONTRACT_ABI from "../smart-contract/wordana-contract-abi.json";
 import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
+import { useRouter } from "next/navigation";
 
 import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
 
 const Instruction = () => {
   const { data, setData } = useMyContext();
   const [event, setNewEvent] = useState();
+
   const {
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
     error: word_of_the_day_Day_Error,
-    write: _appkey
+    write: _appkey,
   } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    functionName: "getWordOfTheDay"
+    functionName: "getWordOfTheDay",
   });
 
-  
+  const router = useRouter();
 
-    useEffect(()=>{
-      const validateCall = async () => {
-        _appkey({
-          args: ["password"],
-        });
-      }
+  const validateCall = async () => {
+    _appkey({
+      args: ["password"],
+    });
+  };
 
-      console.log('calling the func')
-      validateCall()
-    }, [_appkey])
+  console.log(event, "word-guess");
 
-  useContractEvent({
-    address: CONTRACT_ADDRESS,
-    abi: CONTRACT_ABI,
-    eventName: "randomNumberForSinglePlayerGameProvided",
-    listener(log) {
-      // Handle the event here
-      console.log(log, "log");
-    },
-  });
-
-  // const word_of_the_day_index: number = word_of_the_day_Data as number;
-
-  // const word_of_the_day = words[word_of_the_day_index];
-
-  // setData(word_of_the_day_Data);
+  const word_of_the_day = event;
 
   return (
     <div>
@@ -136,9 +121,9 @@ const Instruction = () => {
           </p>
         </div>
 
-        <Link href="/startgame" className="mt-8">
-          <Button title="Start Game"></Button>
-        </Link>
+        <div onClick={validateCall}>
+          <Button title="Initialize Game Environment"></Button>
+        </div>
       </div>
     </div>
   );
