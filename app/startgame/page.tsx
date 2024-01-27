@@ -37,21 +37,23 @@ const Game = () => {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [guessesMade, setGuessesMade] = useState(0)
+  const [gameWon, setGameWon] = useState(false)
 
   useEffect(()=>{
-    if (guessesMade > 6){
+    console.log(guessesMade, 'gmade')
+    if (guessesMade === 6 && !gameWon){
       // redirect to fail screen
       router.push('/lost')
-      console.log('fail')
+      
     }
-  }, [guessesMade])
+  }, [guessesMade, router, gameWon])
 
   const handleSubmission = () => {
     if (currentGuess.length === 5) {
       if (currentGuess === wordToGuess){
         // redirect to won screen
         router.push('/result')
-        console.log('success')
+        setGameWon(true)
       }
       let prevGuesses = guesses;
       const newGuess: Guess = { wordGuessed: currentGuess };
