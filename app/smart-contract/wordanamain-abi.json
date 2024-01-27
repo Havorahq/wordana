@@ -59,6 +59,11 @@
         "internalType": "string",
         "name": "_appkey",
         "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_tokensToEarn",
+        "type": "uint256"
       }
     ],
     "stateMutability": "nonpayable",
@@ -97,6 +102,19 @@
     "type": "event"
   },
   {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_appkey",
+        "type": "string"
+      }
+    ],
+    "name": "getWordOfTheDay",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -126,6 +144,19 @@
       }
     ],
     "name": "playerScoreChanged",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "randomNumber",
+        "type": "uint256"
+      }
+    ],
+    "name": "randomNumberProvided",
     "type": "event"
   },
   {
@@ -177,17 +208,12 @@
   {
     "inputs": [
       {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes",
-        "name": "data",
-        "type": "bytes"
+        "internalType": "uint256",
+        "name": "size",
+        "type": "uint256"
       }
     ],
-    "name": "selectWord",
+    "name": "requestRandomNumbers",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -205,6 +231,11 @@
         "type": "bytes32"
       },
       {
+        "internalType": "bytes32",
+        "name": "_endpointIdUint256Array",
+        "type": "bytes32"
+      },
+      {
         "internalType": "address",
         "name": "_sponsorWallet",
         "type": "address"
@@ -218,29 +249,31 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "playerAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "tokenAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "requiredAmount",
-        "type": "uint256"
+        "internalType": "string",
+        "name": "_appkey",
+        "type": "string"
       }
     ],
-    "name": "stakeCoins",
-    "outputs": [
+    "name": "singlePlayerCollectReward",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
+        "internalType": "bytes32",
+        "name": "requestId",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
       }
     ],
+    "name": "storeRandomNumberArray",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -324,6 +357,19 @@
   {
     "inputs": [],
     "name": "endpointIdUint256",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "endpointIdUint256Array",
     "outputs": [
       {
         "internalType": "bytes32",
@@ -443,12 +489,12 @@
   },
   {
     "inputs": [],
-    "name": "pickWordAtRandom",
+    "name": "randomNum",
     "outputs": [
       {
-        "internalType": "string",
+        "internalType": "uint256",
         "name": "",
-        "type": "string"
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -488,12 +534,25 @@
   },
   {
     "inputs": [],
-    "name": "wordanaTokenAddress",
+    "name": "stakeCoins",
     "outputs": [
       {
-        "internalType": "address",
+        "internalType": "bool",
         "name": "",
-        "type": "address"
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "tokensToEarn",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",

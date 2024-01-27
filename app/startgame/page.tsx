@@ -30,7 +30,7 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 
 const Game = () => {
   const { data: wordToGuess, setData } = useMyContext();
-  console.log(wordToGuess, "wordToGuess");
+  console.log(wordToGuess, "wordToGuess_in_game_page");
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
 

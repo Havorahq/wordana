@@ -4,20 +4,20 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractRead, useContractEvent, useContractWrite } from "wagmi";
+import { useContractEvent, useAccount, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
+import { TOKEN_CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { useMyContext } from "../context/Context";
-import CONTRACT_ABI from "../smart-contract/wordana-contract-abi.json";
-import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
+import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
+import TOKEN_ABI from "../smart-contract/token-abi.json";
 import { useRouter } from "next/navigation";
-import { Oval } from 'react-loader-spinner'
-
-import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
+import { Oval } from "react-loader-spinner";
 
 const Instruction = () => {
   const { data, setData } = useMyContext();
-  const [event, setNewEvent] = useState();
+  const account = useAccount();
+  const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
     data: word_of_the_day_Data,
@@ -31,13 +31,31 @@ const Instruction = () => {
     functionName: "getWordOfTheDay",
   });
 
+  // const { data: allowance, refetch } = useContractRead({
+  //   address: TOKEN_CONTRACT_ADDRESS,
+  //   abi: TOKEN_ABI,
+  //   functionName: "allowance",
+  //   args: [CONTRACT_ADDRESS, account],
+  // });
+
+  // console.log(allowance, "allowance");
+
+  useContractEvent({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    eventName: "randomNumberProvided",
+    listener: (eventNumber) => {
+      setEvent(parseInt(eventNumber[0].args.randomNumber));
+    },
+  });
+
   const router = useRouter();
 
   useEffect(() => {
-    if (word_of_the_day_Data) {
-      setData(words[word_of_the_day_Data as unknown as number]);
+    if (event) {
+      setData(words[event]);
       router.push("/startgame");
-      setLoading(false)
+      setLoading(false);
     }
   }, [event, router]);
 
@@ -47,8 +65,6 @@ const Instruction = () => {
       args: ["password"],
     });
   };
-
-  console.log(word_of_the_day_Data, "word-guess");
 
   return (
     <div>
@@ -130,12 +146,11 @@ const Instruction = () => {
           </p>
         </div>
 
-        
-        {
-          !loading ?
+        {!loading ? (
           <div onClick={validateCall} className="mt-8">
             <Button title="Initialize Game"></Button>
-          </div> :
+          </div>
+        ) : (
           <div className="mt-8">
             <Oval
               height="50"
@@ -145,7 +160,7 @@ const Instruction = () => {
               ariaLabel="loading"
             />
           </div>
-        }
+        )}
       </div>
     </div>
   );
