@@ -6,7 +6,7 @@ import GameBoard from "../components/GameBoard";
 import Button from "../components/Button";
 import WordInputGrid from "../components/WordInputGrid";
 import WordCompareGrid from "../components/WordCompareGrid";
-
+import { useMyContext } from "../context/Context";
 interface Guess {
   wordGuessed: string;
 }
@@ -29,7 +29,8 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 };
 
 const Game = () => {
-  const [wordToGuess, setWordToGuess] = useState("hello");
+  const { data: wordToGuess, setData } = useMyContext();
+  console.log(wordToGuess, "wordToGuess");
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
 
