@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractRead, useAccount, useContractWrite } from "wagmi";
+import { useContractEvent, useAccount, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { TOKEN_CONTRACT_ADDRESS } from "../smart-contract/constants";
@@ -17,7 +17,7 @@ import { Oval } from "react-loader-spinner";
 const Instruction = () => {
   const { data, setData } = useMyContext();
   const account = useAccount();
-  const [event, setNewEvent] = useState();
+  const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
     data: word_of_the_day_Data,
@@ -40,17 +40,24 @@ const Instruction = () => {
 
   // console.log(allowance, "allowance");
 
+  useContractEvent({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    eventName: "randomNumberProvided",
+    listener: (eventNumber) => {
+      setEvent(parseInt(eventNumber[0].args.randomNumber));
+    },
+  });
+
   const router = useRouter();
 
   useEffect(() => {
-    if (word_of_the_day_Data) {
-      console.log(words, word_of_the_day_Data, "inside useeffect");
-
-      setData(words[10 as unknown as number]);
+    if (event) {
+      setData(words[event]);
       router.push("/startgame");
       setLoading(false);
     }
-  }, [word_of_the_day_Data, router]);
+  }, [event, router]);
 
   const validateCall = async () => {
     setLoading(true);
@@ -58,8 +65,6 @@ const Instruction = () => {
       args: ["password"],
     });
   };
-
-  console.log(word_of_the_day_Data, "word-word_of_the_day_Data");
 
   return (
     <div>
