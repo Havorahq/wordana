@@ -1,31 +1,50 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractRead } from "wagmi";
+import { useContractRead, useContractEvent } from "wagmi";
 import { words } from "../smart-contract/constants";
+import { CONTRACT_ADDRESS } from "../smart-contract/constants";
+import { useMyContext } from "../context/Context";
+import CONTRACT_ABI from "../smart-contract/wordana-contract-abi.json";
 import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
 
-import CONTRACT_ABI2 from "../smart-contract/wordanamain2-abi.json";
+import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
 
 const Instruction = () => {
+  const { data, setData } = useMyContext();
+  const [event, setNewEvent] = useState();
   const {
     data: word_of_the_day_Data,
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
     error: word_of_the_day_Day_Error,
   } = useContractRead({
-    address: SINGLE_CONTRACT_ADDRESS,
-    abi: CONTRACT_ABI2,
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
     functionName: "getWordOfTheDay",
     args: ["password"],
   });
 
-  const word_of_the_day_index: number = word_of_the_day_Data as number;
+  useContractEvent({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    eventName: "randomNumberForSinglePlayerGameProvided",
+    listener(log) {
+      // Handle the event here
+      console.log(log, "log");
+    },
+  });
 
-  const word_of_the_day = words[word_of_the_day_index];
+  // const word_of_the_day_index: number = word_of_the_day_Data as number;
+
+  // const word_of_the_day = words[word_of_the_day_index];
+
+  // setData(word_of_the_day_Data);
+
+  console.log(word_of_the_day_Data);
 
   return (
     <div>
