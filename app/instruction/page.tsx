@@ -4,7 +4,13 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import { useContractEvent, useAccount, useContractWrite } from "wagmi";
+import {
+  useContractEvent,
+  useAccount,
+  useContractWrite,
+  useContractRead,
+} from "wagmi";
+import circularJSON from "circular-json";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import { TOKEN_CONTRACT_ADDRESS } from "../smart-contract/constants";
@@ -31,14 +37,21 @@ const Instruction = () => {
     functionName: "getWordOfTheDay",
   });
 
-  // const { data: allowance, refetch } = useContractRead({
-  //   address: TOKEN_CONTRACT_ADDRESS,
-  //   abi: TOKEN_ABI,
-  //   functionName: "allowance",
-  //   args: [CONTRACT_ADDRESS, account],
+  const { data: allowanceData, write: allowance } = useContractWrite({
+    address: TOKEN_CONTRACT_ADDRESS,
+    abi: TOKEN_ABI,
+    functionName: "allowance",
+    args: [account, CONTRACT_ADDRESS],
+  });
+
+  // console.log(allowanceData)
+
+  // const safeAllowanceData = circularJSON.stringify({
+  //   // Convert BigInt value to string
+  //   allowanceData: allowanceData.toString(),
   // });
 
-  // console.log(allowance, "allowance");
+  console.log(allowanceData, "safeAllowanceData");
 
   useContractEvent({
     address: CONTRACT_ADDRESS,
@@ -147,7 +160,7 @@ const Instruction = () => {
         </div>
 
         {!loading ? (
-          <div onClick={validateCall} className="mt-8">
+          <div onClick={allowance} className="mt-8">
             <Button title="Initialize Game"></Button>
           </div>
         ) : (
