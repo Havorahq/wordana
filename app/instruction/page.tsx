@@ -18,6 +18,7 @@ const Instruction = () => {
   const { data, setData } = useMyContext();
   const [event, setNewEvent] = useState();
   const {
+    data: word_of_the_day_Data,
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
     error: word_of_the_day_Day_Error,
@@ -31,8 +32,8 @@ const Instruction = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (event) {
-      setData(parseInt(event));
+    if (word_of_the_day_Data) {
+      setData(words[word_of_the_day_Data as unknown as number]);
       router.push("/startgame");
     }
   }, [event, router]);
@@ -43,9 +44,7 @@ const Instruction = () => {
     });
   };
 
-  console.log(event, "word-guess");
-
-  const word_of_the_day = event;
+  console.log(word_of_the_day_Data, "word-guess");
 
   return (
     <div>
