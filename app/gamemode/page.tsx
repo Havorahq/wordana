@@ -21,7 +21,7 @@ const GameMode = () => {
                   <Image src='/images/singlePlayer.svg' alt='Single player' width={72} height={72}/>
                   <p>Single Player</p>
                 </div>
-                <div 
+                {/* <div 
                   className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md ${href === '/inviteplayer' ? 'activeMode' : ''}`} 
                   onClick={() => setHref('/inviteplayer')}
                 >
@@ -34,7 +34,7 @@ const GameMode = () => {
                 >
                   <Image src='/images/puzzle.svg' alt='Single player' width={72} height={72}/>
                   <p>Join Game</p>
-                </div>
+                </div> */}
             </div>
             <Link href={href}>
               <Button title='Continue'/>

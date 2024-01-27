@@ -18,6 +18,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "react-loader-spinner": "^6.1.6",
+    "react-toastify": "^10.0.4",
     "viem": "^1.21.4",
     "wagmi": "^1.4.13",
     "web3": "^4.4.0"
