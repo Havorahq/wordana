@@ -17,7 +17,6 @@ import CONTRACT_ABI2 from "../smart-contract/wordana-single-player-abi.json";
 const Instruction = () => {
   const { data, setData } = useMyContext();
   const [event, setNewEvent] = useState();
-
   const {
     isLoading: word_of_the_day_Data_Loading,
     isSuccess: word_of_the_day_Data_Started,
@@ -30,6 +29,13 @@ const Instruction = () => {
   });
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (event) {
+      setData(parseInt(event));
+      router.push("/startgame");
+    }
+  }, [event, router]);
 
   const validateCall = async () => {
     _appkey({
@@ -122,7 +128,7 @@ const Instruction = () => {
         </div>
 
         <div onClick={validateCall}>
-          <Button title="Initialize Game Environment"></Button>
+          <Button title="Initialize Game"></Button>
         </div>
       </div>
     </div>
