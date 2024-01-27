@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import { useContractWrite } from "wagmi";
-import { SINGLE_CONTRACT_ADDRESS } from "../smart-contract/constants";
-import CONTRACT_ABI2 from "../smart-contract/wordanamain2-abi.json";
+import { CONTRACT_ADDRESS } from "../smart-contract/constants";
+import CONTRACT_ABI2 from "../smart-contract/wordanamain-abi.json";
 import Button from "../components/Button";
 
 const Won = () => {
@@ -13,7 +13,7 @@ const Won = () => {
     isSuccess: isStakeStarted,
     error: stakeError,
   } = useContractWrite({
-    address: SINGLE_CONTRACT_ADDRESS,
+    address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI2,
     functionName: "guessWord",
   });

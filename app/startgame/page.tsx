@@ -7,11 +7,13 @@ import Button from "../components/Button";
 import WordInputGrid from "../components/WordInputGrid";
 import WordCompareGrid from "../components/WordCompareGrid";
 import { useMyContext } from "../context/Context";
+import { useRouter } from "next/navigation";
 interface Guess {
   wordGuessed: string;
 }
 
 const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
+
   const { numberOfTimes } = props;
   const renderItems = () => {
     const items = [];
@@ -29,24 +31,29 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 };
 
 const Game = () => {
+  const router = useRouter();
   const { data: wordToGuess, setData } = useMyContext();
   console.log(wordToGuess, "wordToGuess_in_game_page");
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [guessesMade, setGuessesMade] = useState(0)
+  const [gameWon, setGameWon] = useState(false)
 
   useEffect(()=>{
-    if (guessesMade > 6){
+    console.log(guessesMade, 'gmade')
+    if (guessesMade === 6 && !gameWon){
       // redirect to fail screen
-      console.log('fail')
+      router.push('/lost')
+      
     }
-  }, [guessesMade])
+  }, [guessesMade, router, gameWon])
 
   const handleSubmission = () => {
     if (currentGuess.length === 5) {
       if (currentGuess === wordToGuess){
         // redirect to won screen
-        console.log('success')
+        router.push('/result')
+        setGameWon(true)
       }
       let prevGuesses = guesses;
       const newGuess: Guess = { wordGuessed: currentGuess };
