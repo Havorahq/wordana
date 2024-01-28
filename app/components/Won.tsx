@@ -8,19 +8,19 @@ import Button from "../components/Button";
 const Won = () => {
   const {
     data: guessWordData,
-    write: guessWord,
+    write: singlePlayerCollectReward,
     isLoading: isStakeLoading,
     isSuccess: isStakeStarted,
     error: stakeError,
   } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI2,
-    functionName: "guessWord",
+    functionName: "singlePlayerCollectReward",
   });
 
   const submitWord = async () => {
-    guessWord({
-      args: ["water"],
+    singlePlayerCollectReward({
+      args: ["password"],
     });
   };
   return (

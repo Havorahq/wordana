@@ -8,21 +8,21 @@ import {
   useContractEvent,
   useAccount,
   useContractWrite,
-  useContractRead,
 } from "wagmi";
-import circularJSON from "circular-json";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
-import { TOKEN_CONTRACT_ADDRESS } from "../smart-contract/constants";
+
 import { useMyContext } from "../context/Context";
 import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
-import TOKEN_ABI from "../smart-contract/token-abi.json";
+
 import { useRouter } from "next/navigation";
 import { Oval } from "react-loader-spinner";
 
 const Instruction = () => {
   const { data, setData } = useMyContext();
   const account = useAccount();
+
+  console.log(account, "account");
   const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
@@ -36,22 +36,6 @@ const Instruction = () => {
     abi: CONTRACT_ABI,
     functionName: "getWordOfTheDay",
   });
-
-  const { data: allowanceData, write: allowance } = useContractWrite({
-    address: TOKEN_CONTRACT_ADDRESS,
-    abi: TOKEN_ABI,
-    functionName: "allowance",
-    args: [account, CONTRACT_ADDRESS],
-  });
-
-  // console.log(allowanceData)
-
-  // const safeAllowanceData = circularJSON.stringify({
-  //   // Convert BigInt value to string
-  //   allowanceData: allowanceData.toString(),
-  // });
-
-  console.log(allowanceData, "safeAllowanceData");
 
   useContractEvent({
     address: CONTRACT_ADDRESS,
@@ -158,9 +142,8 @@ const Instruction = () => {
             No letter is in correct or in the right spot{" "}
           </p>
         </div>
-
         {!loading ? (
-          <div onClick={allowance} className="mt-8">
+          <div onClick={validateCall} className="mt-8">
             <Button title="Initialize Game"></Button>
           </div>
         ) : (
