@@ -13,23 +13,23 @@ import TOKEN_ABI from "../smart-contract/token-abi.json";
 import Web3 from "web3";
 import {
   useAccount,
-  useConnect,
-  //   useContract,
   useContractRead,
   useContractWrite,
-  useNetwork,
-  useWaitForTransaction,
+  useBalance,
 } from "wagmi";
+import { useMyContext } from "../context/Context";
+import { BigNumber } from "bignumber.js";
+
 import { ethers } from "ethers";
 
 const Stake = () => {
-  //   const { data: address } = useMyContext();
+  const { data } = useMyContext();
   const [web3, setWeb3] = useState<Web3 | null>(null);
   const [contract, setContract] = useState<any | null>(null);
   const [token, setToken] = useState<string>("");
   //Stake Function
   const {
-    data: stakeData,
+    data: createGameData,
     write: createGameInstance,
     isLoading: isStakeLoading,
     isSuccess: isStakeStarted,
@@ -40,18 +40,36 @@ const Stake = () => {
     functionName: "createGameInstance",
   });
 
+  console.log(createGameData, "createGameData");
+
   const { address } = useAccount();
 
-  const {
-    data: approvaleData,
-    isLoading: approvalLoading,
-    isSuccess: approvalStarted,
-    error: arrovalError,
-  } = useContractRead({
+  const result = useBalance({
+    address,
+    token: TOKEN_CONTRACT_ADDRESS,
+  });
+
+  const balance = result.data?.formatted;
+
+  const { data: approveData, write: allowanceWrite } = useContractWrite({
     address: TOKEN_CONTRACT_ADDRESS,
+    abi: TOKEN_ABI,
+    functionName: "approve",
+    args: [CONTRACT_ADDRESS, new BigNumber(100).integerValue().toString()],
+  });
+
+  console.log("approveData", approveData);
+  const { data: allowanceData }: { data: any } = useContractRead({
+    address: TOKEN_CONTRACT_ADDRESS,
+    abi: TOKEN_ABI,
     functionName: "allowance",
     args: [address, CONTRACT_ADDRESS],
   });
+
+  const bigintValue = new BigNumber(allowanceData);
+  const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
+  const displayValue = realTokenValue.toNumber();
+  console.log(displayValue, "safeAllowanceData");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -60,7 +78,7 @@ const Stake = () => {
 
   const stakeTokens = async () => {
     createGameInstance({
-      args: [address, ethers.utils.parseEther(token)],
+      args: [data, ethers.utils.parseEther(token)],
     });
   };
 
@@ -68,11 +86,14 @@ const Stake = () => {
     <div>
       <Header />
       <div className="flex flex-col h-screen items-center gap-3 m-32">
-        <div className="border border-borderGrey p-5 rounded-lg text-sm width">
-          <p>Total Balance</p>
-          <p className="my-5">WRD - 200</p>
-          <p className="text-gray-400">$ 200</p>
-        </div>
+        <p className="uppercase retro text-xxs text-primary">
+          Allowance = {displayValue}
+        </p>
+        <p className="uppercase retro text-xxs text-primary">
+          TOTAL BALANCE : {balance} WORDANA
+        </p>
+
+        <p>Transaction will fail if there is not enough Allowance or Balance</p>
 
         <form className="py-5 width">
           <label className="block mb-2 text-sm text-gray-400">
@@ -86,7 +107,7 @@ const Stake = () => {
             onChange={handleChange}
           />
           <p className="text-xs mt-1 text-gray-400">
-            You will have 190 remaining
+            You will have {balance - token} remaining
           </p>
         </form>
         <div onClick={stakeTokens}>
