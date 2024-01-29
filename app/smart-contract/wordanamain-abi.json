@@ -186,6 +186,12 @@
         "internalType": "address",
         "name": "player2Address",
         "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "string",
+        "name": "wordToGuess",
+        "type": "string"
       }
     ],
     "name": "player2HasEntered",

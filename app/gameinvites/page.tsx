@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import Header from "../components/Header";
 import Button from "../components/Button";
 
@@ -16,94 +17,110 @@ import {
   useContractRead,
   useContractWrite,
   useBalance,
+  useContractEvent,
 } from "wagmi";
 import { useMyContext } from "../context/Context";
 import { BigNumber } from "bignumber.js";
+import { useRouter } from "next/navigation";
 
 import { ethers } from "ethers";
 
 const GameInvites = () => {
-    // const { data } = useMyContext();
-    const [web3, setWeb3] = useState<Web3 | null>(null);
-    const [contract, setContract] = useState<any | null>(null);
-    const [invitePlayer, setInvitePlayer] = useState<string>("");
-    const [error, setError] = useState<boolean>(false)
-    const [token, setToken] = useState<string>("");
-    //Stake Function
-    const {
-      data: createGameData,
-      write: createGameInstance,
-      isLoading: isStakeLoading,
-      isSuccess: isStakeStarted,
-      error: stakeError,
-    } = useContractWrite({
-      address: CONTRACT_ADDRESS,
-      abi: CONTRACT_ABI,
-      functionName: "createGameInstance",
-    });
-  
-    console.log(createGameData, "createGameData");
-  
-    const { address } = useAccount();
-  
-    const result = useBalance({
-      address,
-      token: TOKEN_CONTRACT_ADDRESS,
-    });
-  
-    const balance = result.data?.formatted;
-  
-    const { data: approveData, write: allowanceWrite } = useContractWrite({
-      address: TOKEN_CONTRACT_ADDRESS,
-      abi: TOKEN_ABI,
-      functionName: "approve",
-      args: [CONTRACT_ADDRESS, new BigNumber(100).integerValue().toString()],
-    });
-  
-    console.log("approveData", approveData);
-    const { data: allowanceData }: { data: any } = useContractRead({
-      address: TOKEN_CONTRACT_ADDRESS,
-      abi: TOKEN_ABI,
-      functionName: "allowance",
-      args: [address, CONTRACT_ADDRESS],
-    });
-  
-    const bigintValue = new BigNumber(allowanceData);
-    const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
-    const displayValue = realTokenValue.toNumber();
-    console.log(displayValue, "safeAllowanceData");
-  
-    const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = e.target;
-      if(value === address) {
-        setError(true)
-      } else {
-        setError(false)
-      }
-      setInvitePlayer(value);
-    };
-  
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = e.target;
-      setToken(value);
-    };
-  
-    const stakeTokens = async () => {
-      //extra check
-      if(address === invitePlayer) {
-        setError(true)
-      } else {
-        setError(false)
-        createGameInstance({
-          args: [invitePlayer, ethers.utils.parseEther(token)],
-        });
-      }
-    };
-  
-    const increaseCap = async () => {
-      console.log('Cap increased')
+  const { data, setData } = useMyContext();
+  const [web3, setWeb3] = useState<Web3 | null>(null);
+  const [invitePlayer, setInvitePlayer] = useState<string>("");
+  const [error, setError] = useState<boolean>(false);
+  const [event, setEvent] = useState();
+  //Stake Function
+  const {
+    data: enterGameData,
+    write: enterGame,
+    isLoading: isStakeLoading,
+    isSuccess: isStakeStarted,
+    error: stakeError,
+  } = useContractWrite({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: "enterGame",
+  });
+
+  useContractEvent({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    eventName: "playerTwoHasEntered",
+    listener: (event_Emitted) => {
+      console.log(event_Emitted);
+      setData(event_Emitted[0]?.args?.wordToGuess);
+    },
+  });
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (data) {
+      router.push("/startgame");
     }
-    return (
+  }, [data, router]);
+
+  const { address } = useAccount();
+
+  const result = useBalance({
+    address,
+    token: TOKEN_CONTRACT_ADDRESS,
+  });
+
+  const balance = result.data?.formatted;
+
+  const { data: approveData, write: allowanceWrite } = useContractWrite({
+    address: TOKEN_CONTRACT_ADDRESS,
+    abi: TOKEN_ABI,
+    functionName: "approve",
+    args: [CONTRACT_ADDRESS, new BigNumber(100).integerValue().toString()],
+  });
+
+  const { data: allowanceData }: { data: any } = useContractRead({
+    address: TOKEN_CONTRACT_ADDRESS,
+    abi: TOKEN_ABI,
+    functionName: "allowance",
+    args: [address, CONTRACT_ADDRESS],
+  });
+
+  const bigintValue = new BigNumber(allowanceData);
+  const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
+  const displayValue = realTokenValue.toNumber();
+  console.log(displayValue, "safeAllowanceData");
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    if (value === address) {
+      setError(true);
+    } else {
+      setError(false);
+    }
+    setInvitePlayer(value);
+  };
+
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { value } = e.target;
+  //   setToken(value);
+  // };
+
+  const joinGame = async () => {
+    //extra check
+    if (address === invitePlayer) {
+      setError(true);
+    } else {
+      setError(false);
+      enterGame({
+        args: [invitePlayer],
+      });
+    }
+  };
+
+  // const increaseCap = async () => {
+  //   console.log("Cap increased");
+  // };
+  return (
     <div>
       <Header />
       <div className="flex flex-col h-screen items-center gap-3 m-32">
@@ -112,11 +129,12 @@ const GameInvites = () => {
             Allowance = {displayValue || 0}
           </p> */}
           <p className="uppercase retro text-sm text-primary">
-            TOTAL BALANCE : {balance || 0} WORDANA
+            TOTAL BALANCE:{balance || 0} WORDANA
           </p>
-          <p className="text-xxs font-bold mt-1 text-gray-400">Transaction will fail if there is not enough Allowance or Balance</p>
+          <p className="text-xxs font-bold mt-1 text-gray-400">
+            Transaction will fail if there is not enough Allowance or Balance
+          </p>
         </div>
-
 
         <form className="py-5 width mt-4">
           <div className="mb-8">
@@ -130,9 +148,13 @@ const GameInvites = () => {
               value={invitePlayer}
               onChange={handleAddressChange}
             />
-            {error && <p className="text-xs mt-1 font-bold tracking-widest text-red-400">You can't invite yourself!</p>}
+            {error && (
+              <p className="text-xs mt-1 font-bold tracking-widest text-red-400">
+                You can't play yourself!
+              </p>
+            )}
           </div>
-          <div>
+          {/* <div>
             <label className="block mb-2 text-sm text-gray-400">
               Amount of WRD to stake
             </label>
@@ -146,14 +168,14 @@ const GameInvites = () => {
             <p className="text-xxs mt-1 text-gray-400">
               You will have <span className="text-primary mx-1">{balance - token || 0}</span> remaining
             </p>
-          </div>
+          </div> */}
         </form>
-        <div onClick={parseInt(token) > displayValue ? increaseCap : stakeTokens}>
-          <Button title={parseInt(token) > displayValue ? "Increase Allowance" : "Stake WRD"} />
+        <div onClick={joinGame}>
+          <Button title={"Join Game"} />
         </div>
       </div>
-      </div>
-    )
-}
+    </div>
+  );
+};
 
 export default GameInvites;
