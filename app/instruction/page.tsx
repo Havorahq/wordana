@@ -42,7 +42,7 @@ const Instruction = () => {
     abi: CONTRACT_ABI,
     eventName: "randomNumberProvided",
     listener: (eventNumber) => {
-      setEvent(parseInt(eventNumber[0].args.randomNumber));
+      setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
     },
   });
 
@@ -78,19 +78,19 @@ const Instruction = () => {
         </div>
         <div>
           <div className="flex items-center mt-2 gap-3">
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:-translate-y-1 hover:scale-105">
               W
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:-translate-y-1 hover:scale-105">
               O
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-primary box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-primary box transition-transform transform-gpu hover:-translate-y-1 hover:scale-105">
               R
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:-translate-y-1 hover:scale-105">
               D
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:-translate-y-1 hover:scale-105">
               S
             </div>
           </div>
@@ -100,19 +100,19 @@ const Instruction = () => {
         </div>
         <div>
           <div className="flex items-center mt-2 gap-3">
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:scale-105">
               R
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:scale-105">
               A
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:scale-105">
               I
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:scale-105">
               N
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-yellow-300 box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-yellow-300 box transition-transform transform-gpu hover:scale-105">
               Y
             </div>
           </div>
@@ -122,19 +122,19 @@ const Instruction = () => {
         </div>
         <div>
           <div className="flex items-center mt-2 gap-3">
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:translate-y-1 hover:scale-105">
               S
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:translate-y-1 hover:scale-105">
               K
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:translate-y-1 hover:scale-105">
               I
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:translate-y-1 hover:scale-105">
               P
             </div>
-            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box">
+            <div className="text-4xl text-black flex items-center justify-center font-bold rounded-lg bg-borderGray box transition-transform transform-gpu hover:translate-y-1 hover:scale-105">
               S
             </div>
           </div>
@@ -151,7 +151,7 @@ const Instruction = () => {
             <Oval
               height="50"
               width="50"
-              radius="9"
+              // radius="9"
               color="#45F5A1"
               ariaLabel="loading"
             />

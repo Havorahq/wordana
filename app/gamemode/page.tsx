@@ -13,12 +13,12 @@ const GameMode = () => {
     <div>
       <Header />
       <div className="flex flex-col items-center h-screen gap-3 m-32">
-        <div className="flex items-center justify-center gap-5 w-full mb-9">
+        <div className="flex items-center justify-center gap-6 w-full mb-9">
           <div
-            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md ${
-              href === "/instruction" ? "activeMode" : ""
+            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md transition-transform transform-gpu hover:-translate-y-2 hover:scale-105 ${
+              href === "/singleplayer" ? "activeMode" : ""
             }`}
-            onClick={() => setHref("/instruction")}
+            onClick={() => setHref("/singleplayer")}
           >
             <Image
               src="/images/singlePlayer.svg"
@@ -26,13 +26,13 @@ const GameMode = () => {
               width={72}
               height={72}
             />
-            <p>Single Player</p>
+            <p className="font-bold gametext text-xl">Single Player</p>
           </div>
           <div
-            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md ${
-              href === "/inviteplayer" ? "activeMode" : ""
+            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md transition-transform transform-gpu hover:-translate-y-2 hover:scale-105 ${
+              href === "/stake" ? "activeMode" : ""
             }`}
-            onClick={() => setHref("/inviteplayer")}
+            onClick={() => setHref("/stake")}
           >
             <Image
               src="/images/invite.svg"
@@ -41,10 +41,10 @@ const GameMode = () => {
               height={72}
               className="mb-1 mt-3"
             />
-            <p className="mt-3">Invite Player</p>
+            <p className="mt-3 font-bold gametext text-xl">Invite Player</p>
           </div>
           <div
-            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md ${
+            className={`w-56 h-48 bg-gamemode gamemode shadow-gameshadow flex flex-col items-center justify-center gap-2 cursor-pointer rounded-md transition-transform transform-gpu hover:-translate-y-2 hover:scale-105 ${
               href === "/gameinvites" ? "activeMode" : ""
             }`}
             onClick={() => setHref("/gameinvites")}
@@ -55,7 +55,7 @@ const GameMode = () => {
               width={72}
               height={72}
             />
-            <p>Join Game</p>
+            <p className="font-bold gametext text-xl">Join Game</p>
           </div>
         </div>
         <Link href={href}>
