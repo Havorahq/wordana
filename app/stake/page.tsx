@@ -97,9 +97,9 @@ const Stake = () => {
       <Header />
       <div className="flex flex-col h-screen items-center gap-3 m-32">
         <div>
-          <p className="uppercase retro text-sm text-primary">
+          {/* <p className="uppercase retro text-sm text-primary">
             Allowance = {displayValue || 0}
-          </p>
+          </p> */}
           <p className="uppercase retro text-sm text-primary">
             TOTAL BALANCE : {balance || 0} WORDANA
           </p>

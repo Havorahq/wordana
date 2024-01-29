@@ -69,8 +69,8 @@ const Game = () => {
   return (
     <div>
       <Header />
-      <div>
-        <div className="flex flex-col items-center gap-3 m-4 mb-16">
+      <div className="overflow-y-scroll over">
+        <div className="flex flex-col items-center gap-3 m-4 mb-0">
           {guesses.map((guess, index) => (
             <div key={index}>
               {index > guesses.length - 6 && (
@@ -81,15 +81,17 @@ const Game = () => {
               )}
             </div>
           ))}
-          <WordInputGrid
-            isActive
-            setGuess={setCurrentGuess}
-            guess={currentGuess}
-          />
-          {guesses.length < 6 && (
-            <RenderEmptyWordGrid numberOfTimes={5 - guesses.length} />
-          )}
-          <div onClick={() => handleSubmission()}>
+          <div className="mb-0" style={{ marginBottom: -45 }}>
+            <WordInputGrid
+              isActive
+              setGuess={setCurrentGuess}
+              guess={currentGuess}
+            />
+            {guesses.length < 6 && (
+              <RenderEmptyWordGrid numberOfTimes={5 - guesses.length} />
+            )}
+          </div>
+          <div onClick={() => handleSubmission()} className="mt-0">
             <Button title="Submit" />
           </div>
         </div>

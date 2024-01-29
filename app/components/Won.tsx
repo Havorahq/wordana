@@ -1,11 +1,15 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
 import { useContractWrite } from "wagmi";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import CONTRACT_ABI2 from "../smart-contract/wordanamain-abi.json";
 import Button from "../components/Button";
+import { useRouter } from "next/navigation";
 
 const Won = () => {
+  const router = useRouter();
   const {
     data: guessWordData,
     write: singlePlayerCollectReward,
@@ -22,6 +26,7 @@ const Won = () => {
     singlePlayerCollectReward({
       args: ["password"],
     });
+    router.push('/reward')
   };
   return (
     <div className="flex flex-col items-center gap-3 m-28 mb-16">
