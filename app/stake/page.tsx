@@ -23,9 +23,10 @@ import { BigNumber } from "bignumber.js";
 import { ethers } from "ethers";
 
 const Stake = () => {
-  const { data } = useMyContext();
+  // const { data } = useMyContext();
   const [web3, setWeb3] = useState<Web3 | null>(null);
   const [contract, setContract] = useState<any | null>(null);
+  const [invitePlayer, setInvitePlayer] = useState<string>("");
   const [token, setToken] = useState<string>("");
   //Stake Function
   const {
@@ -71,6 +72,11 @@ const Stake = () => {
   const displayValue = realTokenValue.toNumber();
   console.log(displayValue, "safeAllowanceData");
 
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setInvitePlayer(value);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setToken(value);
@@ -78,24 +84,40 @@ const Stake = () => {
 
   const stakeTokens = async () => {
     createGameInstance({
-      args: [data, ethers.utils.parseEther(token)],
+      args: [invitePlayer, ethers.utils.parseEther(token)],
     });
   };
+
+  const increaseCap = async () => {
+    console.log('Cap increased')
+  }
 
   return (
     <div>
       <Header />
       <div className="flex flex-col h-screen items-center gap-3 m-32">
-        <p className="uppercase retro text-xxs text-primary">
-          Allowance = {displayValue}
-        </p>
-        <p className="uppercase retro text-xxs text-primary">
-          TOTAL BALANCE : {balance} WORDANA
-        </p>
+        <div>
+          <p className="uppercase retro text-sm text-primary">
+            Allowance = {displayValue || 0}
+          </p>
+          <p className="uppercase retro text-sm text-primary">
+            TOTAL BALANCE : {balance || 0} WORDANA
+          </p>
+          <p className="text-xxs font-bold mt-1 text-gray-400">Transaction will fail if there is not enough Allowance or Balance</p>
+        </div>
 
-        <p>Transaction will fail if there is not enough Allowance or Balance</p>
 
-        <form className="py-5 width">
+        <form className="py-5 width mt-4">
+          <label className="block mb-2 text-sm text-gray-400">
+            Enter Player Wallet Address
+          </label>
+          <input
+            className="width border border-borderGrey rounded-lg bg-grey p-2 mb-8"
+            placeholder="Player Wallet Address"
+            name="address"
+            value={invitePlayer}
+            onChange={handleAddressChange}
+          />
           <label className="block mb-2 text-sm text-gray-400">
             Amount of WRD to stake
           </label>
@@ -106,12 +128,12 @@ const Stake = () => {
             value={token}
             onChange={handleChange}
           />
-          <p className="text-xs mt-1 text-gray-400">
-            You will have {balance - token} remaining
+          <p className="text-xxs mt-1 text-gray-400">
+            You will have <span className="text-primary mx-1">{balance - token || 0}</span> remaining
           </p>
         </form>
-        <div onClick={stakeTokens}>
-          <Button title="Stake WRD" />
+        <div onClick={parseInt(token) > displayValue ? increaseCap : stakeTokens}>
+          <Button title={parseInt(token) > displayValue ? "Increase Allowance" : "Stake WRD"} />
         </div>
       </div>
     </div>
