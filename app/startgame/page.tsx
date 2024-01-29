@@ -40,8 +40,7 @@ const Game = () => {
   const [gameWon, setGameWon] = useState(false)
 
   useEffect(()=>{
-    console.log(guessesMade, 'gmade')
-    if (guessesMade === 6 && !gameWon){
+    if (guessesMade === 5 && !gameWon){
       // redirect to fail screen
       router.push('/lost')
       
@@ -73,7 +72,7 @@ const Game = () => {
         <div className="flex flex-col items-center gap-3 m-4 mb-0">
           {guesses.map((guess, index) => (
             <div key={index}>
-              {index > guesses.length - 6 && (
+              {index > guesses.length - 5 && (
                 <WordCompareGrid
                   wordGuessed={guess.wordGuessed}
                   wordToGuess={wordToGuess}
@@ -87,8 +86,8 @@ const Game = () => {
               setGuess={setCurrentGuess}
               guess={currentGuess}
             />
-            {guesses.length < 6 && (
-              <RenderEmptyWordGrid numberOfTimes={5 - guesses.length} />
+            {guesses.length < 4 && (
+              <RenderEmptyWordGrid numberOfTimes={4 - guesses.length} />
             )}
           </div>
           <div onClick={() => handleSubmission()} className="mt-0">
