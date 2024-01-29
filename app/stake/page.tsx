@@ -27,6 +27,7 @@ const Stake = () => {
   const [web3, setWeb3] = useState<Web3 | null>(null);
   const [contract, setContract] = useState<any | null>(null);
   const [invitePlayer, setInvitePlayer] = useState<string>("");
+  const [error, setError] = useState<boolean>(false)
   const [token, setToken] = useState<string>("");
   //Stake Function
   const {
@@ -70,10 +71,15 @@ const Stake = () => {
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
   const displayValue = realTokenValue.toNumber();
-  console.log(displayValue, "safeAllowanceData");
+  console.log(displayValue, "safeAllowanceData", 'Error: ', error, address);
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
+    if(value === address) {
+      setError(true)
+    } else {
+      setError(false)
+    }
     setInvitePlayer(value);
   };
 
@@ -83,9 +89,14 @@ const Stake = () => {
   };
 
   const stakeTokens = async () => {
-    createGameInstance({
-      args: [invitePlayer, ethers.utils.parseEther(token)],
-    });
+    if(address === invitePlayer) {
+      setError(true)
+    } else {
+      setError(false)
+      createGameInstance({
+        args: [invitePlayer, ethers.utils.parseEther(token)],
+      });
+    }
   };
 
   const increaseCap = async () => {
@@ -108,16 +119,19 @@ const Stake = () => {
 
 
         <form className="py-5 width mt-4">
-          <label className="block mb-2 text-sm text-gray-400">
-            Enter Player Wallet Address
-          </label>
-          <input
-            className="width border border-borderGrey rounded-lg bg-grey p-2 mb-8"
-            placeholder="Player Wallet Address"
-            name="address"
-            value={invitePlayer}
-            onChange={handleAddressChange}
-          />
+          <div className="mb-8">
+            <label className="block mb-2 text-sm text-gray-400">
+              Enter Player Wallet Address
+            </label>
+            <input
+              className="width border border-borderGrey rounded-lg bg-grey p-2"
+              placeholder="Player Wallet Address"
+              name="address"
+              value={invitePlayer}
+              onChange={handleAddressChange}
+            />
+            {error && <p className="text-xs mt-1 font-bold tracking-widest text-red-400">You can't invite yourself!</p>}
+          </div>
           <label className="block mb-2 text-sm text-gray-400">
             Amount of WRD to stake
           </label>
