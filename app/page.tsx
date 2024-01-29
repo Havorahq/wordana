@@ -13,7 +13,7 @@ export default function Home() {
   const notify = () => toast.error("Wallet is not connected!", {
     position: "top-center"
   });
-  // console.log('Account: ', account)
+  console.log('Account: ', account)
   return (
     <div>
       <ToastContainer />
