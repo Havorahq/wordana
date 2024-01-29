@@ -89,6 +89,7 @@ const Stake = () => {
   };
 
   const stakeTokens = async () => {
+    //extra check
     if(address === invitePlayer) {
       setError(true)
     } else {
@@ -132,19 +133,21 @@ const Stake = () => {
             />
             {error && <p className="text-xs mt-1 font-bold tracking-widest text-red-400">You can't invite yourself!</p>}
           </div>
-          <label className="block mb-2 text-sm text-gray-400">
-            Amount of WRD to stake
-          </label>
-          <input
-            className="width border border-borderGrey rounded-lg bg-grey p-2"
-            placeholder="10"
-            name="token"
-            value={token}
-            onChange={handleChange}
-          />
-          <p className="text-xxs mt-1 text-gray-400">
-            You will have <span className="text-primary mx-1">{balance - token || 0}</span> remaining
-          </p>
+          <div>
+            <label className="block mb-2 text-sm text-gray-400">
+              Amount of WRD to stake
+            </label>
+            <input
+              className="width border border-borderGrey rounded-lg bg-grey p-2"
+              placeholder="10"
+              name="token"
+              value={token}
+              onChange={handleChange}
+            />
+            <p className="text-xxs mt-1 text-gray-400">
+              You will have <span className="text-primary mx-1">{balance - token || 0}</span> remaining
+            </p>
+          </div>
         </form>
         <div onClick={parseInt(token) > displayValue ? increaseCap : stakeTokens}>
           <Button title={parseInt(token) > displayValue ? "Increase Allowance" : "Stake WRD"} />
