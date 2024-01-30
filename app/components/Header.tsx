@@ -48,13 +48,14 @@ const Header = () => {
       {/* Sign in player */}
       <div className="flex gap-3 items-center">
         <p className="retro text-xs">Staking Balance</p>
-      {  displayValue && <div
+
+        <div
           className="flex gap-3 items-center text-green-500 cursor-pointer"
           onClick={allowanceWrite}
         >
           {displayValue}
           <p className="retro text-xs">WRD</p>
-        </div>}
+        </div>
       </div>
 
       <ConnectButton />
