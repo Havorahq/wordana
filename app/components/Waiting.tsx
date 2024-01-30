@@ -10,7 +10,7 @@ const Waiting = (props:{waitingForResult: boolean}) => {
             <Image src='/images/hourglass.gif' alt='vector' width={267} height={267} />
             {
                 props.waitingForResult? (
-                    <p className='retro text-xs'>Computing reuslts...</p>
+                    <p className='retro text-xs'>Computing results...</p>
                 ):(
                     <p className='retro text-xs'>Waiting for your opponent to finish...</p>
                 )

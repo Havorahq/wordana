@@ -22,6 +22,7 @@ import {
     useBalance,
     useContractEvent,
   } from "wagmi";
+import MultiplayerWinner from "../components/MultiplayerWinner";
 
 interface Guess {
   wordGuessed: string;
@@ -62,6 +63,9 @@ const Game = () => {
   const opponentDone = useRef(false)
   const hasBeenWaiting = useRef(false)
   const [waitingForResult, setWaitingForResult] = useState(false)
+  const [message, setMessage] = useState('')
+  const [isDraw, setIsDraw] = useState(false)
+  const [gameConcluded, setGameConcluded] = useState(false)
 
 
   const {
@@ -83,8 +87,10 @@ const Game = () => {
       console.log('waiting...')
       if (address1 === player1Address && done.current && !opponentDone.current){
         if (hasBeenWaiting.current){
+          if (!gameConcluded){
             setGameStatus('waiting')
             setWaitingForResult(true)
+          }
         } else{
             hasBeenWaiting.current = true
             setGameStatus('waiting')
@@ -109,10 +115,12 @@ const Game = () => {
       const winnerAddress = eventNumber[0]?.args?.winnerAddress;
       if (address1 === player1Address){
         if (winnerAddress === player1Address){
-            console.log('player 1 won')
+            setMessage('player 1 won')
         } else {
-            console.log('player 2 won')
+            setMessage('player 2 won')
         }
+        setGameStatus("view result")
+        setGameConcluded(true)
       }
 
     },
@@ -125,7 +133,9 @@ const Game = () => {
     listener: (eventNumber) => {
       const address1 = eventNumber[0]?.args?.player1Address;
       if (address1 === player1Address){
-        console.log("it's a draw")
+        setMessage("it's a draw")
+        setGameStatus("view result")
+        setIsDraw(true)
       }
 
     },
@@ -229,6 +239,8 @@ const Game = () => {
         }
 
         {gameStatus === 'waiting' && <Waiting waitingForResult={waitingForResult}/>}
+
+        {gameStatus === 'view result' && <MultiplayerWinner message={message} isDraw={isDraw}/> }
 
     </div>
   );
