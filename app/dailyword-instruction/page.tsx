@@ -4,11 +4,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 import Button from "../components/Button";
-import {
-  useContractEvent,
-  useAccount,
-  useContractWrite,
-} from "wagmi";
+import { useContractEvent, useAccount, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 
@@ -51,7 +47,7 @@ const Instruction = () => {
   useEffect(() => {
     if (event) {
       setData(words[event]);
-      router.push("/dailyword-startgame");
+      router.push("/startgame");
       setLoading(false);
     }
   }, [event, router]);
