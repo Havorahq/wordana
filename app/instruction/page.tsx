@@ -17,7 +17,6 @@ const Instruction = () => {
   const { data, setData } = useMyContext();
   const account = useAccount();
 
-  console.log(account, "account");
   const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
@@ -50,6 +49,8 @@ const Instruction = () => {
       setLoading(false);
     }
   }, [event, router]);
+
+  console.log(data, "random-word");
 
   const validateCall = async () => {
     setLoading(true);

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import React from "react";
@@ -22,11 +22,13 @@ const Won = () => {
     functionName: "singlePlayerCollectReward",
   });
 
-  const submitWord = async () => {
+  console.log(guessWordData, "guessWordData");
+
+  const collectReward = async () => {
     singlePlayerCollectReward({
       args: ["password"],
     });
-    router.push('/reward')
+    router.push("/reward");
   };
   return (
     <div className="flex flex-col items-center gap-3 m-28 mb-16">
@@ -40,7 +42,7 @@ const Won = () => {
         />
         <p className="retro text-xs">YOU WON!</p>
       </div>
-      <div onClick={submitWord}>
+      <div onClick={collectReward}>
         <Button title="Claim Your Reward" />
       </div>
     </div>

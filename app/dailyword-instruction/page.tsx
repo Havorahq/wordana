@@ -18,8 +18,7 @@ const Instruction = () => {
   const { data, setData } = useMyContext();
   const account = useAccount();
 
-  console.log(account, "account");
-  const [event, setEvent] = useState(0);
+  // const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
     data: word_of_the_day_Data,
@@ -33,24 +32,28 @@ const Instruction = () => {
     functionName: "getWordOfTheDay",
   });
 
-  useContractEvent({
-    address: CONTRACT_ADDRESS,
-    abi: CONTRACT_ABI,
-    eventName: "randomNumberProvided",
-    listener: (eventNumber) => {
-      setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
-    },
-  });
+  // useContractEvent({
+  //   address: CONTRACT_ADDRESS,
+  //   abi: CONTRACT_ABI,
+  //   eventName: "randomNumberProvided",
+  //   listener: (eventNumber) => {
+  //     setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
+  //   },
+  // });
+
+  const wordOfTheDay = word_of_the_day_Data as unknown as string;
 
   const router = useRouter();
 
   useEffect(() => {
-    if (event) {
-      setData(words[event]);
+    if (wordOfTheDay) {
+      setData(wordOfTheDay);
       router.push("/startgame");
       setLoading(false);
     }
-  }, [event, router]);
+  }, [wordOfTheDay, router]);
+
+  console.log(wordOfTheDay, "wordoftheday");
 
   const validateCall = async () => {
     setLoading(true);

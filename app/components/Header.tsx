@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Button from "./Button";
 import Link from "next/link";
@@ -16,7 +16,6 @@ import {
   useAccount,
   useContractRead,
   useContractWrite,
-  useBalance,
 } from "wagmi";
 import { BigNumber } from "bignumber.js";
 
@@ -29,6 +28,13 @@ const Header = () => {
     args: [address, CONTRACT_ADDRESS],
   });
 
+  const { data: userXp, error } = useContractRead({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: "XP", // Replace with the actual public variable name
+  });
+
+
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
   const displayValue = realTokenValue.toNumber();
@@ -39,6 +45,11 @@ const Header = () => {
     functionName: "approve",
     args: [CONTRACT_ADDRESS, new BigNumber(100).integerValue().toString()],
   });
+
+  useEffect(() => {
+    console.log("allowanceData changed:", allowanceData);
+    console.log("approveData changed:", approveData);
+  }, [allowanceData, approveData]);
 
   return (
     <div className="flex items-center justify-between">
