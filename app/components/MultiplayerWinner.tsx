@@ -8,7 +8,7 @@ import CONTRACT_ABI2 from "../smart-contract/wordanamain-abi.json";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 
-const Won = () => {
+const MultiplayerWinner = (props:{message: string, isDraw: boolean}) => {
   const router = useRouter();
   const {
     data: guessWordData,
@@ -38,13 +38,13 @@ const Won = () => {
           height={30}
           width={30}
         />
-        <p className="retro text-xs">YOU WON!</p>
+        <p className="retro text-xs">{props.message}</p>
       </div>
-      <div onClick={submitWord}>
+      <div>
         <Button title="Claim Your Reward" />
       </div>
     </div>
   );
 };
 
-export default Won;
+export default MultiplayerWinner;

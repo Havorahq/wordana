@@ -5,7 +5,7 @@ import React from "react";
 import { useContractWrite } from "wagmi";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import CONTRACT_ABI2 from "../smart-contract/wordanamain-abi.json";
-import Button from "../components/Button";
+import Button from "./Button";
 import { useRouter } from "next/navigation";
 
 const Won = () => {

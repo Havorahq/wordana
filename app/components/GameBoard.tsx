@@ -3,7 +3,7 @@ import React from 'react'
 
 const GameBoard = () => {
   return (
-    <div className='flex items-center justify-between mt-16 mx-8 mr-16'>
+    <div className='flex items-center justify-between mt-4 mx-8 mr-16'>
         <Image src='/images/gamelives.svg' alt='lives' height={20} width={223} />
         <div className='flex flex-col items-center'>
             <p className='retro text-xs'>Score board</p>

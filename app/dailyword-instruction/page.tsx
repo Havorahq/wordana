@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
+import Link from "next/link";
 import Button from "../components/Button";
 import { useContractEvent, useAccount, useContractWrite } from "wagmi";
 import { words } from "../smart-contract/constants";
@@ -29,7 +30,7 @@ const Instruction = () => {
   } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
-    functionName: "getWordForSinglePlayer",
+    functionName: "getWordOfTheDay",
   });
 
   useContractEvent({

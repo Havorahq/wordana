@@ -16,9 +16,9 @@ const Result = () => {
         <Header />
         <div>
             <div className='flex flex-col items-center'>
-                <Won /> 
-                <Link href='/'>
-                    <Button title='Back To Home' />
+                <Lost />
+                <Link href='/instruction'>
+                    <Button title='Try again' />
                 </Link>
             </div>
             <GameBoard />
