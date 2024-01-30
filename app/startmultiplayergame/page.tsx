@@ -13,13 +13,7 @@ import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
 import Waiting from "../components/Waiting";
 import { Oval } from "react-loader-spinner";
-import {
-  useAccount,
-  useContractRead,
-  useContractWrite,
-  useBalance,
-  useContractEvent,
-} from "wagmi";
+import { useContractWrite, useContractEvent } from "wagmi";
 import MultiplayerWinner from "../components/MultiplayerWinner";
 
 interface Guess {
@@ -61,11 +55,12 @@ const Game = () => {
   const [waitingForResult, setWaitingForResult] = useState(false);
   const [message, setMessage] = useState("");
   const [isDraw, setIsDraw] = useState(false);
-  const [gameConcluded, setGameConcluded] = useState(false);
+  const gameConcluded = useRef(false);
+  const [winner, setWinner] = useState("");
 
   console.log(data, "data", wordToGuess, "wordToGuess");
 
-  const { data: enterGameData, write: submitScore } = useContractWrite({
+  const { write: submitScore } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
     functionName: "recordGame",
@@ -85,7 +80,7 @@ const Game = () => {
         !opponentDone.current
       ) {
         if (hasBeenWaiting.current) {
-          if (!gameConcluded) {
+          if (!gameConcluded.current) {
             setGameStatus("waiting");
             setWaitingForResult(true);
           }
@@ -118,6 +113,7 @@ const Game = () => {
     listener: (eventNumber) => {
       const address1 = eventNumber[0]?.args?.player1Address;
       const winnerAddress = eventNumber[0]?.args?.winnerAddress;
+      setWinner(eventNumber[0]?.args?.winnerAddress);
       if (address1 === player1Address) {
         if (winnerAddress === player1Address) {
           setMessage("player 1 won");
@@ -125,7 +121,7 @@ const Game = () => {
           setMessage("player 2 won");
         }
         setGameStatus("view result");
-        setGameConcluded(true);
+        gameConcluded.current = true;
       }
     },
   });
@@ -161,7 +157,7 @@ const Game = () => {
       // you're done!
       done.current = true;
       setLoading(true);
-      submitGame(0);
+      submitGame(6);
     }
   }, [guessesMade, gameWon, data]);
 
@@ -242,7 +238,12 @@ const Game = () => {
       )}
 
       {gameStatus === "view result" && (
-        <MultiplayerWinner message={message} isDraw={isDraw} />
+        <MultiplayerWinner
+          message={message}
+          isDraw={isDraw}
+          id={player1Address}
+          winner={winner}
+        />
       )}
     </div>
   );
