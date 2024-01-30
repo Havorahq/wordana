@@ -45,7 +45,7 @@ const SinglePlayer = () => {
                         <p className="font-bold gametext text-xl">Daily Word</p>
                     </div>
                 </div>
-                <Link href={'/instruction'}>
+                <Link href={mode === 'new game' ? '/instruction' : 'dailyword-instruction'}>
                     <Button title="Continue" />
                 </Link>
             </div>
