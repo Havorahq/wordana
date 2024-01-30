@@ -22,8 +22,7 @@ import {
 import { useMyContext } from "../context/Context";
 import { BigNumber } from "bignumber.js";
 import { useRouter } from "next/navigation";
-
-import { ethers } from "ethers";
+import { Oval } from "react-loader-spinner";
 
 const GameInvites = () => {
   const { data, setData } = useMyContext();
@@ -31,13 +30,11 @@ const GameInvites = () => {
   const [invitePlayer, setInvitePlayer] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [event, setEvent] = useState();
+  const [loading, setLoading] = useState(false)
   //Stake Function
   const {
     data: enterGameData,
     write: enterGame,
-    isLoading: isStakeLoading,
-    isSuccess: isStakeStarted,
-    error: stakeError,
   } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
@@ -49,17 +46,17 @@ const GameInvites = () => {
     abi: CONTRACT_ABI,
     eventName: "playerTwoHasEntered",
     listener: (event_Emitted) => {
-      console.log(event_Emitted);
-      setData(event_Emitted[0]?.args?.wordToGuess);
+      setData(event_Emitted[0]?.args);
+      router.push("/startmultiplayergame");
     },
   });
 
   const router = useRouter();
 
   useEffect(() => {
-    if (data) {
-      router.push("/startgame");
-    }
+    // if (data) {
+    //   router.push("/startgame");
+    // }
   }, [data, router]);
 
   const { address } = useAccount();
@@ -106,6 +103,7 @@ const GameInvites = () => {
   // };
 
   const joinGame = async () => {
+    setLoading(true)
     //extra check
     if (address === invitePlayer) {
       setError(true);
@@ -170,9 +168,24 @@ const GameInvites = () => {
             </p>
           </div> */}
         </form>
-        <div onClick={joinGame}>
-          <Button title={"Join Game"} />
-        </div>
+        {
+          loading? (
+            <div className="mt-8 flex flex-col items-center space-y-4">
+              <Oval
+                height="50"
+                width="50"
+                // radius="9"
+                color="#45F5A1"
+                ariaLabel="loading"
+              />
+              <p>Joining game...</p>
+            </div>
+          ):(
+            <div onClick={joinGame}>
+              <Button title="Join Game"  />
+            </div>
+          )
+        }
       </div>
     </div>
   );

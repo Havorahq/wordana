@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
+import { Oval } from "react-loader-spinner";
 
 import {
   CONTRACT_ADDRESS,
@@ -48,9 +49,9 @@ const Stake = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (data) {
-      router.push("/startgame");
-    }
+    // if (data) {
+    //   router.push("/startgame");
+    // }
   }, [data, router]);
 
   const { address } = useAccount();
@@ -66,8 +67,8 @@ const Stake = () => {
     abi: CONTRACT_ABI,
     eventName: "playerTwoHasEntered",
     listener: (event_Emitted) => {
-      console.log(event_Emitted, "event_Emitted_from_host");
-      setData(event_Emitted[0]?.args.wordToGuess);
+      setData(event_Emitted[0]?.args);
+      router.push("/startmultiplayergame");
     },
   });
 
@@ -126,7 +127,7 @@ const Stake = () => {
             />
             {error && (
               <p className="text-xs mt-1 font-bold tracking-widest text-red-400">
-                You can't invite yourself!
+                You cannot invite yourself!
               </p>
             )}
           </div>
@@ -149,13 +150,26 @@ const Stake = () => {
           </div>
         </form>
 
-        <div onClick={loading ? null : stakeTokens}>
-          {loading ? (
-            <Button title="Waiting for Player 2" disabled />
-          ) : (
-            <Button title="Stake WRD" />
-          )}
-        </div>
+        {
+          loading? (
+            <div className="mt-8 flex flex-col items-center space-y-4">
+            <Oval
+              height="50"
+              width="50"
+              // radius="9"
+              color="#45F5A1"
+              ariaLabel="loading"
+            />
+            <p>Waiting for player 2 to enter.</p>
+          </div>
+          ):(
+            <div onClick={stakeTokens}>
+              <Button title="Stake WRD"  />
+            </div>
+          )
+        }
+
+        
       </div>
     </div>
   );
