@@ -21,7 +21,6 @@ const Result = () => {
                     <Button title='Try again' />
                 </Link>
             </div>
-            <GameBoard />
         </div>
     </div>
   )

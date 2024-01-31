@@ -249,7 +249,7 @@ const Game = () => {
                 </div>
               )}
             </div>
-            <GameBoard />
+            <GameBoard guessesMade={guessesMade} />
           </div>
         </div>
       )}
