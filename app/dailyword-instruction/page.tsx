@@ -15,46 +15,36 @@ import { useRouter } from "next/navigation";
 import { Oval } from "react-loader-spinner";
 
 const Instruction = () => {
-  const { data, setData } = useMyContext();
-  const account = useAccount();
+  const { setData } = useMyContext();
 
-  // const [event, setEvent] = useState(0);
+  const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
-  const {
-    data: word_of_the_day_Data,
-    isLoading: word_of_the_day_Data_Loading,
-    isSuccess: word_of_the_day_Data_Started,
-    error: word_of_the_day_Day_Error,
-    write: _appkey,
-  } = useContractWrite({
+  const { write: _appkey } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
     functionName: "getWordOfTheDay",
   });
 
-  // useContractEvent({
-  //   address: CONTRACT_ADDRESS,
-  //   abi: CONTRACT_ABI,
-  //   eventName: "randomNumberProvided",
-  //   listener: (eventNumber) => {
-  //     setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
-  //   },
-  // });
+  useContractEvent({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    eventName: "wordOfTheDayReturned",
+    listener: (eventNumber) => {
+      setEvent(parseInt(eventNumber[0]?.args.wordOfTheDay));
+    },
+  });
 
-  const wordOfTheDay = word_of_the_day_Data as unknown as string;
+  console.log(event, "word_index");
 
   const router = useRouter();
 
   useEffect(() => {
-    if (wordOfTheDay) {
-      setData(wordOfTheDay);
+    if (event) {
+      setData(words[event]);
       router.push("/startgame");
       setLoading(false);
     }
-    //eslint-disable-next-line
-  }, [wordOfTheDay, router]);
-
-  console.log(wordOfTheDay, "wordoftheday");
+  }, [event, router, setData]);
 
   const validateCall = async () => {
     setLoading(true);
@@ -70,7 +60,7 @@ const Instruction = () => {
         <div className="p-4 border rounded-lg">
           <p className="uppercase retro text-xxs text-primary">Game rules:</p>
           <p className="mt-1 retro leading-relaxed" style={{ fontSize: 8 }}>
-            Try guessing the correct word six(6) tries. <br />
+            Try guessing the correct word six(5) tries. <br />
             After each try, the tiles changes color to show <br />
             you how close you were to the correct word, you <br />
             get 20 points for each correct word and spot.

@@ -12,11 +12,7 @@ import {
 import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
 import TOKEN_ABI from "../smart-contract/token-abi.json";
 import Web3 from "web3";
-import {
-  useAccount,
-  useContractRead,
-  useContractWrite,
-} from "wagmi";
+import { useAccount, useContractRead, useContractWrite } from "wagmi";
 import { BigNumber } from "bignumber.js";
 
 const Header = () => {
@@ -33,7 +29,6 @@ const Header = () => {
     abi: CONTRACT_ABI,
     functionName: "XP", // Replace with the actual public variable name
   });
-
 
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
@@ -57,15 +52,14 @@ const Header = () => {
         <Image src="/icons/brandLogo.svg" alt="logo" height={64} width={192} />
       </Link>
       {/* Sign in player */}
-      <div className="flex gap-3 items-center">
-        <p className="retro text-xs">Staking Balance</p>
+      <div className="flex gap-2 items-center  text-green-500 cursor-pointer border-solid border-2 border-sky-500 rounded-xl font-mono p-2 hover:bg-green-600 hover:text-black active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+        <h3>Add Staking Balance: </h3>
 
         <div
-          className="flex gap-3 items-center text-green-500 cursor-pointer"
+          className="flex gap-2 retro text-xs"
           onClick={allowanceWrite as any}
         >
           {displayValue}
-          <p className="retro text-xs">WRD</p>
         </div>
       </div>
 
