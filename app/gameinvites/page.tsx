@@ -46,7 +46,8 @@ const GameInvites = () => {
     abi: CONTRACT_ABI,
     eventName: "playerTwoHasEntered",
     listener: (event_Emitted) => {
-      setData(event_Emitted[0]?.args);
+      const emittedEvent = event_Emitted[0] as any
+      setData(emittedEvent.args);
       router.push("/startmultiplayergame");
     },
   });
@@ -148,7 +149,7 @@ const GameInvites = () => {
             />
             {error && (
               <p className="text-xs mt-1 font-bold tracking-widest text-red-400">
-                You can't play yourself!
+                You can&apos;t play yourself!
               </p>
             )}
           </div>

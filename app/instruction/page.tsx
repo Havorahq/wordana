@@ -17,7 +17,6 @@ const Instruction = () => {
   const { data, setData } = useMyContext();
   const account = useAccount();
 
-  console.log(account, "account");
   const [event, setEvent] = useState(0);
   const [loading, setLoading] = useState(false);
   const {
@@ -37,7 +36,8 @@ const Instruction = () => {
     abi: CONTRACT_ABI,
     eventName: "randomNumberProvided",
     listener: (eventNumber) => {
-      setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
+      const eventNum = eventNumber[0] as any
+      setEvent(parseInt(eventNum.args?.randomNumber));
     },
   });
 
@@ -49,7 +49,10 @@ const Instruction = () => {
       router.push("/startgame");
       setLoading(false);
     }
+    //eslint-disable-next-line
   }, [event, router]);
+
+  console.log(data, "random-word");
 
   const validateCall = async () => {
     setLoading(true);

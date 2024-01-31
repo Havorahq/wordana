@@ -1,33 +1,37 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import React from "react";
-import { useContractWrite } from "wagmi";
+import { useContractWrite, useAccount } from "wagmi";
 import { CONTRACT_ADDRESS } from "../smart-contract/constants";
 import CONTRACT_ABI2 from "../smart-contract/wordanamain-abi.json";
 import Button from "../components/Button";
 import { useRouter } from "next/navigation";
 
-const MultiplayerWinner = (props:{message: string, isDraw: boolean}) => {
+const MultiplayerWinner = (props: {
+  message: string;
+  isDraw: boolean;
+  id: string;
+  winner: string;
+}) => {
   const router = useRouter();
-  const {
-    data: guessWordData,
-    write: singlePlayerCollectReward,
-    isLoading: isStakeLoading,
-    isSuccess: isStakeStarted,
-    error: stakeError,
-  } = useContractWrite({
+  const { write: winnerClaimReward } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI2,
-    functionName: "singlePlayerCollectReward",
+    functionName: "winnerClaimReward",
   });
 
-  const submitWord = async () => {
-    singlePlayerCollectReward({
-      args: ["password"],
+  const { address } = useAccount();
+
+  const isWinner = props.winner === address;
+
+  const claimReward = async () => {
+    winnerClaimReward({
+      args: [props.id],
     });
-    router.push('/reward')
+    router.push("/reward");
   };
+  
   return (
     <div className="flex flex-col items-center gap-3 m-28 mb-16">
       <Image src="/images/flag.gif" alt="vector" width={154} height={154} />
@@ -41,7 +45,18 @@ const MultiplayerWinner = (props:{message: string, isDraw: boolean}) => {
         <p className="retro text-xs">{props.message}</p>
       </div>
       <div>
-        <Button title="Claim Your Reward" />
+        {isWinner && (
+          <div onClick={claimReward}>
+            <Button title="Claim Your Reward" />
+          </div>
+        )}
+        {
+          props.isDraw && (
+            <div className="text-center">
+              Your tokens will be returned automatically.
+            </div>
+          )
+        }
       </div>
     </div>
   );

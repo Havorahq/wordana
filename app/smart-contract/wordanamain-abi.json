@@ -151,9 +151,9 @@
 		"name": "getWordOfTheDay",
 		"outputs": [
 			{
-				"internalType": "string",
+				"internalType": "uint256",
 				"name": "",
-				"type": "string"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "nonpayable",
@@ -448,9 +448,9 @@
 		"inputs": [
 			{
 				"indexed": true,
-				"internalType": "string",
+				"internalType": "uint256",
 				"name": "wordOfTheDay",
-				"type": "string"
+				"type": "uint256"
 			}
 		],
 		"name": "wordOfTheDayReturned",

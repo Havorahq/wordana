@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SinglePlayer = () => {
-  const [href, setHref] = useState("");
   const [mode, setMode] = useState("");
 
   return (
@@ -42,7 +41,7 @@ const SinglePlayer = () => {
               height={72}
               className="mt-4"
             />
-            <p className="font-bold gametext text-xl">Daily Word</p>
+            <p className="font-bold gametext text-xl">Word Of The Day</p>
           </div>
         </div>
         <Link
