@@ -66,6 +66,26 @@ const Game = () => {
     functionName: "recordGame",
   });
 
+  const { write: doRefund } = useContractWrite({
+    address: CONTRACT_ADDRESS,
+    abi: CONTRACT_ABI,
+    functionName: "refundForDraw",
+  });
+
+  const refund = () => {
+    doRefund({
+      args: [player1Address],
+    });
+  };
+
+
+  useEffect(()=>{
+    if (isDraw){
+      refund()
+    }
+    //eslint-disable-next-line
+  }, [isDraw])
+
   useContractEvent({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,

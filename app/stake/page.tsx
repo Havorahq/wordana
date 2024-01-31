@@ -10,7 +10,6 @@ import {
   TOKEN_CONTRACT_ADDRESS,
 } from "../smart-contract/constants";
 import CONTRACT_ABI from "../smart-contract/wordanamain-abi.json";
-import TOKEN_ABI from "../smart-contract/token-abi.json";
 import Web3 from "web3";
 import {
   useAccount,
@@ -47,12 +46,6 @@ const Stake = () => {
   });
 
   const router = useRouter();
-
-  useEffect(() => {
-    // if (data) {
-    //   router.push("/startgame");
-    // }
-  }, [data, router]);
 
   const { address } = useAccount();
 

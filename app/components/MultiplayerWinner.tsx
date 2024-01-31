@@ -31,6 +31,7 @@ const MultiplayerWinner = (props: {
     });
     router.push("/reward");
   };
+  
   return (
     <div className="flex flex-col items-center gap-3 m-28 mb-16">
       <Image src="/images/flag.gif" alt="vector" width={154} height={154} />
@@ -49,6 +50,13 @@ const MultiplayerWinner = (props: {
             <Button title="Claim Your Reward" />
           </div>
         )}
+        {
+          props.isDraw && (
+            <div className="text-center">
+              Your tokens will be returned automatically.
+            </div>
+          )
+        }
       </div>
     </div>
   );
