@@ -85,8 +85,10 @@ const Game = () => {
             setWaitingForResult(true);
           }
         } else {
-          hasBeenWaiting.current = true;
-          setGameStatus("waiting");
+          if (!gameConcluded.current) {
+            hasBeenWaiting.current = true;
+            setGameStatus("waiting");
+          }
         }
       } else if (
         address1 === player1Address &&
@@ -99,9 +101,11 @@ const Game = () => {
         done.current &&
         opponentDone.current
       ) {
+        if (!gameConcluded.current) {
         setGameStatus("waiting");
         setWaitingForResult(true);
         console.log("to announce winner");
+        }
       }
     },
   });
