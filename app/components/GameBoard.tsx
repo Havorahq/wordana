@@ -34,15 +34,15 @@ const GameBoard: React.FC<GameBoardProps> = ({ guessesMade, pathname }) => {
                 <p className='retro text-xs'>Score board</p>
                 <div className='flex items-center gap-3 mt-2'>
                     <div className='flex items-center gap-3'>
-                        <Image src='/images/user-avatar.svg' alt='Avatar' height={30} width={30} />
-                        <p className='retro text-xs'>Daniel</p>
-                        <p className='retro text-xs'>20</p>
+                        <Image src='/icons/gamer.png' alt='Avatar' height={25} width={25} />
+                        <p className='retro text-xs'>Player 1</p>
+                        <p className='retro text-xs'></p>
                     </div>
                     {pathname !== '/startgame' ?
                      <div className='flex items-center gap-3'>
-                        <Image src='/images/user-avatar.svg' alt='Avatar' height={30} width={30} />
-                        <p className='retro text-xs'>Josh</p>
-                        <p className='retro text-xs'>10</p>
+                        <Image src='/icons/single-player.png' alt='Avatar' height={25} width={25} />
+                        <p className='retro text-xs'>Player 2</p>
+                        <p className='retro text-xs'></p>
                     </div>
                     :
                     <div></div>
