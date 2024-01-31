@@ -28,7 +28,7 @@ const { chains, publicClient } = configureChains(
     base,
     zora,
   ],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
+  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID as unknown as string }), publicProvider()]
 );
 const { connectors } = getDefaultWallets({
   appName: "Wordana",

@@ -67,7 +67,8 @@ const Stake = () => {
     abi: CONTRACT_ABI,
     eventName: "playerTwoHasEntered",
     listener: (event_Emitted) => {
-      setData(event_Emitted[0]?.args);
+      const eventEmitted = event_Emitted[0] as any
+      setData(eventEmitted.args);
       router.push("/startmultiplayergame");
     },
   });
@@ -144,7 +145,7 @@ const Stake = () => {
             />
             <p className="text-xxs mt-1 text-gray-400">
               You will have{" "}
-              <span className="text-primary mx-1">{balance - token || 0}</span>{" "}
+              <span className="text-primary mx-1">{(balance as any) - (token as any) || 0}</span>{" "}
               remaining
             </p>
           </div>

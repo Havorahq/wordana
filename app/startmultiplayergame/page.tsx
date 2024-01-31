@@ -40,8 +40,8 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 const Game = () => {
   const router = useRouter();
   const data = useMyContext();
-  const player1Address = data.data.player1Address;
-  const player2Address = data.data.player2Address;
+  const player1Address = (data.data as any).player1Address;
+  const player2Address = (data.data as any).player2Address;
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [guessesMade, setGuessesMade] = useState(0);
@@ -71,7 +71,8 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "playerScoreChanged",
     listener: (eventNumber) => {
-      const address1 = eventNumber[0]?.args?.player1Address;
+      const eventNum = eventNumber[0] as any
+      const address1 = eventNum?.args?.player1Address;
       console.log(address1, player1Address, done, "the address");
       console.log("waiting...");
       if (
@@ -115,9 +116,10 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameWon",
     listener: (eventNumber) => {
-      const address1 = eventNumber[0]?.args?.player1Address;
-      const winnerAddress = eventNumber[0]?.args?.winnerAddress;
-      setWinner(eventNumber[0]?.args?.winnerAddress);
+      const eventNum = eventNumber[0] as any
+      const address1 = eventNum?.args?.player1Address;
+      const winnerAddress = eventNum?.args?.winnerAddress;
+      setWinner(eventNum?.args?.winnerAddress);
       if (address1 === player1Address) {
         if (winnerAddress === player1Address) {
           setMessage("player 1 won");
@@ -135,7 +137,8 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameDrawn",
     listener: (eventNumber) => {
-      const address1 = eventNumber[0]?.args?.player1Address;
+      const eventNum = eventNumber[0] as any
+      const address1 = eventNum?.args?.player1Address;
       if (address1 === player1Address) {
         setMessage("it's a draw");
         setGameStatus("view result");
@@ -151,10 +154,10 @@ const Game = () => {
   };
 
   useEffect(() => {
-    const wordIndex = data.data.wordToGuess;
+    const wordIndex = (data.data as any).wordToGuess;
     console.log(words[wordIndex]);
     setWordToGuess(words[wordIndex]);
-  }, [data.data.wordToGuess]);
+  }, [data.data]);
 
   useEffect(() => {
     if (guessesMade === 5 && !gameWon) {
@@ -163,6 +166,7 @@ const Game = () => {
       setLoading(true);
       submitGame(6);
     }
+    //eslint-disable-next-line
   }, [guessesMade, gameWon, data]);
 
   const handleSubmission = () => {

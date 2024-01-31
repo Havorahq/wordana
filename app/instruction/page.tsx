@@ -36,7 +36,8 @@ const Instruction = () => {
     abi: CONTRACT_ABI,
     eventName: "randomNumberProvided",
     listener: (eventNumber) => {
-      setEvent(parseInt(eventNumber[0]?.args?.randomNumber));
+      const eventNum = eventNumber[0] as any
+      setEvent(parseInt(eventNum.args?.randomNumber));
     },
   });
 
@@ -48,6 +49,7 @@ const Instruction = () => {
       router.push("/startgame");
       setLoading(false);
     }
+    //eslint-disable-next-line
   }, [event, router]);
 
   console.log(data, "random-word");

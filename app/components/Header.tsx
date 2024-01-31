@@ -62,7 +62,7 @@ const Header = () => {
 
         <div
           className="flex gap-3 items-center text-green-500 cursor-pointer"
-          onClick={allowanceWrite}
+          onClick={allowanceWrite as any}
         >
           {displayValue}
           <p className="retro text-xs">WRD</p>

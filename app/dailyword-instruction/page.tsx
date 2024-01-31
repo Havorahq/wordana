@@ -51,6 +51,7 @@ const Instruction = () => {
       router.push("/startgame");
       setLoading(false);
     }
+    //eslint-disable-next-line
   }, [wordOfTheDay, router]);
 
   console.log(wordOfTheDay, "wordoftheday");
