@@ -52,15 +52,13 @@ const Header = () => {
         <Image src="/icons/brandLogo.svg" alt="logo" height={64} width={192} />
       </Link>
       {/* Sign in player */}
-      <div className="flex gap-2 items-center  text-green-500 cursor-pointer border-solid border-2 border-sky-500 rounded-xl font-mono p-2 hover:bg-green-600 hover:text-black active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+      <div
+        className="flex gap-2 items-center  text-green-500 cursor-pointer border-solid border-2 border-sky-500 rounded-xl font-mono p-2 hover:bg-green-600 hover:text-black focus:outline-none focus:ring focus:ring-violet-300"
+        onClick={allowanceWrite as any}
+      >
         <h3>Add Staking Balance: </h3>
 
-        <div
-          className="flex gap-2 retro text-xs"
-          onClick={allowanceWrite as any}
-        >
-          {displayValue}
-        </div>
+        <div className="flex gap-2 retro text-xs">{displayValue}</div>
       </div>
 
       <ConnectButton />
