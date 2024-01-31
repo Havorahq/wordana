@@ -30,7 +30,7 @@ const Instruction = () => {
     abi: CONTRACT_ABI,
     eventName: "wordOfTheDayReturned",
     listener: (eventNumber) => {
-      setEvent(parseInt(eventNumber[0]?.args.wordOfTheDay));
+      setEvent(parseInt((eventNumber[0] as any)?.args.wordOfTheDay));
     },
   });
 
