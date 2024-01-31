@@ -21,10 +21,9 @@ const Result = () => {
                     <Button title='Back To Home' />
                 </Link>
             </div>
-            <GameBoard />
         </div>
     </div>
   )
 }
 
-export default Result
+export default Result;
