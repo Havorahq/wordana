@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import WordInputGrid from "../components/WordInputGrid";
 import WordCompareGrid from "../components/WordCompareGrid";
 import { useMyContext } from "../context/Context";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 interface Guess {
   wordGuessed: string;
 }
@@ -32,11 +32,14 @@ const RenderEmptyWordGrid = (props: { numberOfTimes: number }) => {
 
 const Game = () => {
   const router = useRouter();
+  const path = usePathname()
   const { data: wordToGuess, setData } = useMyContext();
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [guessesMade, setGuessesMade] = useState(0)
   const [gameWon, setGameWon] = useState(false)
+
+  console.log('Amount of guesses:', currentGuess, guessesMade, path)
 
   useEffect(()=>{
     if (guessesMade === 5 && !gameWon){
@@ -89,11 +92,11 @@ const Game = () => {
               <RenderEmptyWordGrid numberOfTimes={4 - guesses.length} />
             )}
           </div>
-          <div onClick={() => handleSubmission()} className="mt-0">
+          <div onClick={() => handleSubmission()} className="mt-12">
             <Button title="Submit" />
           </div>
         </div>
-        <GameBoard />
+        <GameBoard guessesMade={guessesMade} pathname={path} />
       </div>
     </div>
   );
