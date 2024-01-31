@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
 import Link from "next/link";
@@ -33,6 +33,7 @@ const Header = () => {
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
   const displayValue = realTokenValue.toNumber();
+  const [showReloadButton, setShowReloadButton] = useState(false)
 
   const { data: approveData, write: allowanceWrite } = useContractWrite({
     address: TOKEN_CONTRACT_ADDRESS,
@@ -40,11 +41,6 @@ const Header = () => {
     functionName: "approve",
     args: [CONTRACT_ADDRESS, new BigNumber(100).integerValue().toString()],
   });
-
-  useEffect(() => {
-    console.log("allowanceData changed:", allowanceData);
-    console.log("approveData changed:", approveData);
-  }, [allowanceData, approveData]);
 
   return (
     <div className="flex items-center justify-between">
@@ -56,11 +52,17 @@ const Header = () => {
         className="flex gap-2 items-center  text-green-500 cursor-pointer border-solid border-2 border-sky-500 rounded-xl font-mono p-2 hover:bg-green-600 hover:text-black focus:outline-none focus:ring focus:ring-violet-300"
         onClick={allowanceWrite as any}
       >
-        <h3>Add Staking Balance: </h3>
+        <div className="flex gap-2 items-center" onClick={()=>{
+          setTimeout(()=>setShowReloadButton(true), 5000)
+        }}>
+          <h3>Add Staking Balance: </h3>
 
-        <div className="flex gap-2 retro text-xs">{displayValue}</div>
+          <div className="flex gap-2 retro text-xs">{isNaN(displayValue)? '' : displayValue}</div>
+        </div>
+        
       </div>
 
+      {showReloadButton && <p className="text-sm text-green-500 hover:text-white cursor-pointer" onClick={()=>location.reload()}>reload</p>}
       <ConnectButton />
     </div>
   );

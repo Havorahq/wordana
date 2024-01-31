@@ -58,8 +58,6 @@ const Game = () => {
   const gameConcluded = useRef(false);
   const [winner, setWinner] = useState("");
 
-  console.log(data, "data", wordToGuess, "wordToGuess");
-
   const { write: submitScore } = useContractWrite({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
@@ -93,8 +91,6 @@ const Game = () => {
     listener: (eventNumber) => {
       const eventNum = eventNumber[0] as any
       const address1 = eventNum?.args?.player1Address;
-      console.log(address1, player1Address, done, "the address");
-      console.log("waiting...");
       if (
         address1 === player1Address &&
         done.current &&
@@ -125,7 +121,6 @@ const Game = () => {
         if (!gameConcluded.current) {
         setGameStatus("waiting");
         setWaitingForResult(true);
-        console.log("to announce winner");
         }
       }
     },
@@ -175,7 +170,6 @@ const Game = () => {
 
   useEffect(() => {
     const wordIndex = (data.data as any).wordToGuess;
-    console.log(words[wordIndex]);
     setWordToGuess(words[wordIndex]);
   }, [data.data]);
 
@@ -194,7 +188,6 @@ const Game = () => {
       if (currentGuess === wordToGuess) {
         setLoading(true);
         done.current = true;
-        console.log(done);
         // call the recordGame Function
         submitGame(guessesMade);
         // move to waiting screen
