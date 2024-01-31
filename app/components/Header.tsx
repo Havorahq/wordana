@@ -61,7 +61,7 @@ const Header = () => {
         
       </div>
 
-      {showReloadButton && <p className="text-sm text-green-500 hover:text-white cursor-pointer" onClick={()=>location.reload()}>reload</p>}
+      {showReloadButton && <p className="text-sm text-black font-bold hover:text-white cursor-pointer bg-white p-3 rounded-lg" onClick={()=>location.reload()}>reload</p>}
       <ConnectButton />
     </div>
   );

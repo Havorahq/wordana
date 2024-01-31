@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useRef } from "react";
-
 interface WordInputGridProps {
   wordGuessed: string;
   wordToGuess: string;
@@ -11,7 +9,6 @@ const WordCompareGrid: React.FC<WordInputGridProps> = ({
   wordGuessed,
   wordToGuess,
 }) => {
-  console.log({ wordGuessed, wordToGuess });
 
   const boxStyle =
     "flex justify-center items-center rounded-lg border w-[70px] h-[70px] uppercase text-black";
