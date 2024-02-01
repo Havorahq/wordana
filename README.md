@@ -106,13 +106,13 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Single Player Mode](/public/images/single_player.png)
 
-### Single Player Mode - Win
+<!-- ### Single Player Mode - Win
 
 ![Single Player Mode - Win](/public/images/you_won.png)
 
 ### Single Player Mode - Lose
 
-![Single Player Mode - Lose](/public/images/you_lost.png)
+![Single Player Mode - Lose](/public/images/you_lost.png) -->
 
 <!-- ### Single Player Mode - Game Play
 
@@ -144,9 +144,9 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Game Hints](/public/images/game_hints.png)
 
-### Game Interface
+<!-- ### Game Interface
 
-![Game Interface](/public/images/game_interface.png)
+![Game Interface](/public/images/game_interface.png) -->
 
 ## License
 
