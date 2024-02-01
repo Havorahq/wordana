@@ -4,6 +4,8 @@
 
 Wordana is a web3-based application that combines word guessing and blockchain technology. Users can enjoy a word guessing game to win WRD tokens. The game offers both single-player and multiplayer modes.
 
+Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/): A React framework for building web applications.
