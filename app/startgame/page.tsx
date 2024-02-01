@@ -39,8 +39,6 @@ const Game = () => {
   const [guessesMade, setGuessesMade] = useState(0)
   const [gameWon, setGameWon] = useState(false)
 
-  console.log('Amount of guesses:', currentGuess, guessesMade, path)
-
   useEffect(()=>{
     if (guessesMade === 5 && !gameWon){
       // redirect to fail screen
