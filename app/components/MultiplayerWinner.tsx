@@ -41,7 +41,7 @@ const MultiplayerWinner = (props: {
         <Image src="/images/flag.gif" alt="vector" width={154} height={154} />
         <div className="flex items-center gap-2 mt-8">
           <Image
-            src="/images/user-avatar.svg"
+            src="/icons/gamer.png"
             alt="Avatar"
             height={30}
             width={30}
