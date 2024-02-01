@@ -13,6 +13,7 @@ const MultiplayerWinner = (props: {
   isDraw: boolean;
   id: string;
   winner: string;
+  refund: any
 }) => {
   const router = useRouter();
   const { write: winnerClaimReward } = useContractWrite({
@@ -52,8 +53,10 @@ const MultiplayerWinner = (props: {
         )}
         {
           props.isDraw && (
-            <div className="text-center">
-              Your tokens will be returned automatically.
+            <div className="flex justify-center">
+              <div onClick={props.refund}>
+                <Button title="Request refund" />
+              </div>
             </div>
           )
         }

@@ -77,12 +77,12 @@ const Game = () => {
   };
 
 
-  useEffect(()=>{
-    if (isDraw){
-      refund()
-    }
-    //eslint-disable-next-line
-  }, [isDraw])
+  // useEffect(()=>{
+  //   if (isDraw){
+  //     refund()
+  //   }
+  //   //eslint-disable-next-line
+  // }, [isDraw])
 
   useContractEvent({
     address: CONTRACT_ADDRESS,
@@ -264,6 +264,7 @@ const Game = () => {
           isDraw={isDraw}
           id={player1Address}
           winner={winner}
+          refund={refund}
         />
       )}
     </div>
