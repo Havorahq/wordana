@@ -120,6 +120,9 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
+### Single Game Play - You Won
+<img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
+
 
 
 
