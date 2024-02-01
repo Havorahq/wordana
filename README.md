@@ -112,9 +112,9 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Single Player Mode - Lose](/public/images/you_lost.png)
 
-### Single Player Mode - Game Play
+<!-- ### Single Player Mode - Game Play
 
-![Single Player Mode - Game Play](/public/images/game_play.png)
+![Single Player Mode - Game Play](/public/images/game_play.png) -->
 
 ### Multiplayer Mode - Invite
 
@@ -128,13 +128,13 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
-### Multiplayer Mode - Waiting Room
+<!-- ### Multiplayer Mode - Waiting Room
 
-![Multiplayer Mode - Waiting Room](/public/images/opp_wait.png)
+![Multiplayer Mode - Waiting Room](/public/images/opp_wait.png) -->
 
-### Multiplayer Mode - Result
+<!-- ### Multiplayer Mode - Result
 
-![Multiplayer Mode - Result](/public/images/multi_win.png)
+![Multiplayer Mode - Result](/public/images/multi_win.png) -->
 
 
 
