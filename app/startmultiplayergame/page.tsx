@@ -106,7 +106,9 @@ const Game = () => {
         !done.current &&
         !opponentDone.current
       ) {
-        opponentDone.current = true;
+        if (!gameConcluded.current) {
+          opponentDone.current = true;
+        }
       } else if (
         address1 === player1Address &&
         done.current &&
@@ -146,17 +148,20 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameDrawn",
     listener: (eventNumber) => {
+      console.log('eve')
       const eventNum = eventNumber[0] as any;
       const address1 = eventNum?.args?.player1Address;
       if (address1 === player1Address) {
         setMessage("it's a draw");
         setGameStatus("view result");
         setIsDraw(true);
+        gameConcluded.current = true
       }
     },
   });
 
   const submitGame = (guessIndex: number) => {
+    console.log(guessIndex, 'the guess index')
     submitScore({
       args: [player1Address, guessIndex, "password"],
     });
@@ -192,8 +197,11 @@ const Game = () => {
       const newGuess: Guess = { wordGuessed: currentGuess };
       prevGuesses.push(newGuess);
       setGuesses(prevGuesses);
+      const cGuess = currentGuess
       setCurrentGuess("");
-      setGuessesMade((preVal) => preVal + 1);
+      if(cGuess !== wordToGuess){
+        setGuessesMade((preVal) => preVal + 1);
+      }
     } else {
       alert("submitted word must have 5 letters");
     }
