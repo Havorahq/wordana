@@ -116,12 +116,33 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
+###  Game Interface
+
+<img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
+
+###  Game Play
+
+<img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
+
 ### Multiplayer Mode - Game Play
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
+### Multiplayer Mode - You Win
+
+<img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
+
+### Player Wait
+<img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
+
+
+
 ### Single Game Play - You Won
 <img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
+
+### Single Game Play - You Lost
+
+<img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/6a37a4f8-00cc-4a26-b2e9-d4a89f037e8a">
 
 
 
