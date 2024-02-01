@@ -78,13 +78,6 @@ const Game = () => {
 
   console.log({ wordToGuess });
 
-  // useEffect(()=>{
-  //   if (isDraw){
-  //     refund()
-  //   }
-  //   //eslint-disable-next-line
-  // }, [isDraw])
-
   useContractEvent({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
@@ -179,7 +172,7 @@ const Game = () => {
       // you're done!
       done.current = true;
       setLoading(true);
-      submitGame(6);
+      submitGame(10);
     }
     //eslint-disable-next-line
   }, [guessesMade, gameWon, data]);
