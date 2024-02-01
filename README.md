@@ -116,6 +116,11 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
+
+### Game Hints
+
+![Game Hints](/public/images/game_hints.png)
+
 ###  Game Interface
 
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
@@ -142,14 +147,9 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ### Single Game Play - You Lost
 
-<img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/6a37a4f8-00cc-4a26-b2e9-d4a89f037e8a">
+<img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
 
-
-
-### Game Hints
-
-![Game Hints](/public/images/game_hints.png)
 
 ## License
 
