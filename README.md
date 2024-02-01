@@ -104,7 +104,7 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Single Player Mode](/public/images/single_player.png)
 
-### Multiplayer Mode
+### Multiplayer Mode - Invite
 
 ![Multiplayer Mode - Invite](/public/images/multi_player.png)
 
