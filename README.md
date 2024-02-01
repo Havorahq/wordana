@@ -46,7 +46,7 @@ Wordana is a web3-based application that combines word guessing and blockchain t
 
     ```env
     REACT_APP_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY
-    REACT_APP_CONTRACT_ADDRESS=0x... # replace with your smart contract address
+    CONTRACT_ADDRESS=0x... # replace with your smart contract address
     ```
 
 4. Start development server:
