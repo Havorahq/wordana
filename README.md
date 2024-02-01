@@ -133,6 +133,9 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
+###  Mode - Guess Right
+<img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
+
 ### Multiplayer Mode - You Win
 
 <img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
