@@ -76,6 +76,7 @@ const Game = () => {
     });
   };
 
+  console.log({ wordToGuess });
 
   // useEffect(()=>{
   //   if (isDraw){
@@ -89,7 +90,7 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "playerScoreChanged",
     listener: (eventNumber) => {
-      const eventNum = eventNumber[0] as any
+      const eventNum = eventNumber[0] as any;
       const address1 = eventNum?.args?.player1Address;
       if (
         address1 === player1Address &&
@@ -119,8 +120,8 @@ const Game = () => {
         opponentDone.current
       ) {
         if (!gameConcluded.current) {
-        setGameStatus("waiting");
-        setWaitingForResult(true);
+          setGameStatus("waiting");
+          setWaitingForResult(true);
         }
       }
     },
@@ -131,7 +132,7 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameWon",
     listener: (eventNumber) => {
-      const eventNum = eventNumber[0] as any
+      const eventNum = eventNumber[0] as any;
       const address1 = eventNum?.args?.player1Address;
       const winnerAddress = eventNum?.args?.winnerAddress;
       setWinner(eventNum?.args?.winnerAddress);
@@ -152,7 +153,7 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameDrawn",
     listener: (eventNumber) => {
-      const eventNum = eventNumber[0] as any
+      const eventNum = eventNumber[0] as any;
       const address1 = eventNum?.args?.player1Address;
       if (address1 === player1Address) {
         setMessage("it's a draw");
