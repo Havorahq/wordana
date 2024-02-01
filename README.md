@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Wordana - Web Application Game
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Wordana is a web3-based application that combines word guessing and blockchain technology. Users can enjoy a word guessing game to win WRD tokens. The game offers both single-player and multiplayer modes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Next.js](https://nextjs.org/): A React framework for building web applications.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework.
+- [BigNumber.js](https://github.com/MikeMcl/bignumber.js/): Handles large blockchain-related numbers with ease and precision.
+- [rainbow-me/rainbowkit](https://github.com/rainbow-me/rainbowkit): Simplifies integration with popular wallets like MetaMask, Rainbow, and WalletConnect.
+- [wagmi](https://github.com/example/wagmi): Offers a clean and abstracted API for interacting with smart contracts.
+- [ethers.js](https://docs.ethers.io/v5/): Used for specific low-level interactions with the Ethereum blockchain.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation and Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Prerequisites
 
-## Learn More
+- [Node.js](https://nodejs.org/) (version 14+)
+- npm or yarn
 
-To learn more about Next.js, take a look at the following resources:
+### Steps
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    git clone https://github.com/example/wordana.git
+    ```
 
-## Deploy on Vercel
+2. Install dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    or
+
+    ```bash
+    yarn install
+    ```
+
+3. Configure environment:
+
+    Create a `.env` file with the following content:
+
+    ```env
+    REACT_APP_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY
+    REACT_APP_CONTRACT_ADDRESS=0x... # replace with your smart contract address
+    ```
+
+4. Start development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    or
+
+    ```bash
+    yarn dev
+    ```
+
+## Deployment
+
+The application can be deployed to Vercel or Netlify using their respective deployment commands. Refer to their documentation for specific instructions.
+
+## Contributing
+
+We welcome contributions! Please ensure your code adheres to our style guide and submit pull requests for review.
+
+## Game Flow
+
+### Home Page
+
+- Users are prompted to connect their wallet.
+
+### Single Player Mode
+
+- Select a new game or daily word.
+- Have 5 chances to guess the correct 5-letter word.
+- Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+
+### Multiplayer Mode
+
+- Input a valid wallet address and stake a WRD token.
+- Both players start the game together.
+- The first to guess the right word wins the staked token.
+- If no one guesses the right word, there is no winner.
+
+## Images
+
+Below are images illustrating different aspects of the Wordana web application.
+
+### Home Page
+
+![Home Page](/public/images/home_page.png)
+
+### Game Mode
+
+![Game Mode](/public/images/game_mode.png)
+
+### Single Player Mode
+
+![Single Player Mode](/public/images/single_player.png)
+
+### Multiplayer Mode
+
+![Multiplayer Mode - Invite](/public/images/multi_player.png)
+
+### Game Hints
+
+![Game Hints](/public/images/game_hints.png)
+
+### Game Interface
+
+![Game Interface](/public/images/game_interface.png)
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
