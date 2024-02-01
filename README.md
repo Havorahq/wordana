@@ -12,6 +12,8 @@ Wordana is a web3-based application that combines word guessing and blockchain t
 - [rainbow-me/rainbowkit](https://github.com/rainbow-me/rainbowkit): Simplifies integration with popular wallets like MetaMask, Rainbow, and WalletConnect.
 - [wagmi](https://github.com/example/wagmi): Offers a clean and abstracted API for interacting with smart contracts.
 - [ethers.js](https://docs.ethers.io/v5/): Used for specific low-level interactions with the Ethereum blockchain.
+- [API3 QRNG](https://api3.org/qrng/): Random number generator that provides dapps with truly random numbers based on quantum mechanics.
+- [lightlink](https://www.lightlink.io/): Gasless blockchain network for enterprises and dapps.
 
 ## Installation and Setup
 
