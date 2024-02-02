@@ -109,7 +109,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
 
 
- ### Right Right
+ ### Right Guess
  
 <img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
 
