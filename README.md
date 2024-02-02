@@ -128,7 +128,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ## Multiplayer Mode 
 
-###- Invite player
+### - Invite player
 
 ![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/edf687d7-685d-4c6c-b5d5-1024a6be2ac7)
 
