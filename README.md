@@ -153,7 +153,8 @@ Below are images illustrating different aspects of the Wordana web application.
 
 <img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
-
+### Results from scanning the main smart contract and token smart contract
+<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
 ## License
 
