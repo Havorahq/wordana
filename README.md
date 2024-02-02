@@ -1,8 +1,8 @@
 # Wordana - Web Application Game
 
-## Link to Wordana Game: (https://wordana.vercel.app)
-## Video presentation Link: (https://youtu.be/3-yLP3fqsc8)
-## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+#### Link to Wordana Game: (https://wordana.vercel.app)
+#### Video presentation Link: (https://youtu.be/3-yLP3fqsc8)
+#### Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
 #### Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
 #### Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
 
@@ -75,16 +75,14 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ### Home Page
 
-- Users are prompted to connect their wallet.
-
-
-
 ### Connect your wallet
+- Start by connecting your wallet; Wordana plays nice with all crypto wallets. And hey, no need to stress about dealing with our smart contracts – they've got a solid security score of 88%, thoroughly scanned by SolidityScan. 
   
 <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
     
     
 ### Click on "Start Playing"
+- After linking your wallet, just give the "start playing" button a tap, and you're off to the game menu. From there, simply choose your play mode – for now, let's go with Single Player. 
   
 ![Home Page](/public/images/home_page.png)
 
@@ -99,6 +97,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
   
 ###  Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+- Here's the rules of the game and how it works. Always handy for first time players. All you need to do at this point is to initialise the game.
 
 ![Game Hints](/public/images/game_hints.png)
 
@@ -131,6 +130,8 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 
 ## Multiplayer Mode 
+- The multiplayer works just like the single player mode. The difference is that you get to share the fun with someone else.
+- Start by topping up your staking balance. This is simply increasing your spending cap. 
 
 ### - Invite player
 
@@ -153,6 +154,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 
 ### Both players start the game together.
+- Once the other player accepts your invite, it's game on, and the ultimate winner grabs it all.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
