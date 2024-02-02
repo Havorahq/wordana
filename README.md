@@ -76,7 +76,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ### Home Page
 
 ### Connect your wallet
-- Start by connecting your wallet; Wordana plays nice with all crypto wallets. And hey, no need to stress about dealing with our smart contracts – they've got a solid security score of 88%, thoroughly scanned by SolidityScan. 
+- Start by connecting your wallet; Wordana plays nice with all crypto wallets.
   
 <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
     
