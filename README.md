@@ -1,9 +1,11 @@
 # Wordana - Web Application Game
 
 ## Link to Wordana Game: (https://wordana.vercel.app)
+## Video presentation Link: ([link](https://youtu.be/3-yLP3fqsc8))
 ## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
 ## Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
 ## Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
+
 
 ## Overview
 
@@ -101,7 +103,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Game Hints](/public/images/game_hints.png)
 
 
-### Have 5 chances to guess the correct 5-letter word.
+- Once you approve the transaction, the game is all yours. Take your shot at guessing the word in 5 tries and claim your WRD token reward when you win. Quick heads up though, the game is pretty addictive, fair warning!
 
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
 
