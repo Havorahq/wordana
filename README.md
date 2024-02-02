@@ -130,7 +130,8 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ###- Invite player
 
-![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/c58c069e-84f7-41a2-8e8d-d0b2c1499d7f)
+![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/edf687d7-685d-4c6c-b5d5-1024a6be2ac7)
+
 
 
 ### Input a valid wallet address and stake a WRD token.
@@ -151,22 +152,27 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
+### Player Wait
+
+
+<img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
+
+
 
 ### The first to guess the right word wins the staked token.
 
 <img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
 
-### Player Wait
-<img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
 
 
 ### If no one guesses the right word, there is no winner.
 
 
 
-### Results from scanning the main smart contract and token smart contract
+## Results from scanning the main smart contract and token smart contract
 
 ![image](https://github.com/Havorahq/wordana/assets/36278808/95d14bff-475d-4506-99db-354810a65c73)
+
 
 <img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
