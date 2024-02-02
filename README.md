@@ -104,8 +104,31 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
 
 
+###  Game Play
 
-### Multiplayer Mode - Invite player
+<img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
+
+
+ ### Right Right
+ 
+<img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
+
+
+### Single Game Play - You Won
+
+<img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
+
+
+### Single Game Play - You Lost
+
+<img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
+
+
+
+
+## Multiplayer Mode 
+
+###- Invite player
 
 ![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/c58c069e-84f7-41a2-8e8d-d0b2c1499d7f)
 
@@ -115,7 +138,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Multiplayer Mode - Invite](/public/images/multi_player.png)
 
 
-### Multiplayer Mode - Join game
+### Join game
 
 <img width="1440" alt="Screenshot 2024-02-02 at 8 52 17 PM" src="https://github.com/Havorahq/wordana/assets/36278808/a62ccc82-3423-4e61-9b0c-dd69b3ca2c95">
 
@@ -128,21 +151,8 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
-- The first to guess the right word wins the staked token.
-- If no one guesses the right word, there is no winner.
 
-
-
-
-###  Game Play
-
-<img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
-
-
-###  Mode - Guess Right
-<img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
-
-### Multiplayer Mode - You Win
+### The first to guess the right word wins the staked token.
 
 <img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
 
@@ -150,15 +160,14 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
 
 
+### If no one guesses the right word, there is no winner.
 
-### Single Game Play - You Won
-<img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
 
-### Single Game Play - You Lost
-
-<img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
 ### Results from scanning the main smart contract and token smart contract
+
+![image](https://github.com/Havorahq/wordana/assets/36278808/95d14bff-475d-4506-99db-354810a65c73)
+
 <img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
 ## License
