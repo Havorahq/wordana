@@ -22,8 +22,6 @@ const Won = () => {
     functionName: "singlePlayerCollectReward",
   });
 
-  console.log(guessWordData, "guessWordData");
-
   const collectReward = async () => {
     singlePlayerCollectReward({
       args: ["password"],
@@ -34,12 +32,7 @@ const Won = () => {
     <div className="flex flex-col items-center gap-3 m-28 mb-16">
       <Image src="/images/flag.gif" alt="vector" width={154} height={154} />
       <div className="flex items-center gap-2 mt-8">
-        <Image
-          src="/icons/gamer.png"
-          alt="Avatar"
-          height={30}
-          width={30}
-        />
+        <Image src="/icons/gamer.png" alt="Avatar" height={30} width={30} />
         <p className="retro text-xs">YOU WON!</p>
       </div>
       <div onClick={collectReward}>

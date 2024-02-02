@@ -52,7 +52,6 @@ const Instruction = () => {
     //eslint-disable-next-line
   }, [event, router]);
 
-  console.log(data, "random-word");
 
   const validateCall = async () => {
     setLoading(true);

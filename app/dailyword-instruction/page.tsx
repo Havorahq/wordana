@@ -34,8 +34,6 @@ const Instruction = () => {
     },
   });
 
-  console.log(event, "word_index");
-
   const router = useRouter();
 
   useEffect(() => {

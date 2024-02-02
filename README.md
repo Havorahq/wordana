@@ -2,6 +2,8 @@
 
 ## Link to Wordana Game: (https://wordana.vercel.app)
 ## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+## Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
+## Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
 
 ## Overview
 
