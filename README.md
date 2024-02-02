@@ -112,25 +112,23 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
 
 
- ### Right Guess
+- This is how it looks like when you guess the word correctly.
  
 <img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
 
 
-### Single Game Play - You Won
+- This is how it looks like when you win. You can claim your reward afterward
 
 <img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
 
 
-### Single Game Play - You Lost
+- This is how it looks like when you lose. You can replay but you get to predict another random word provided by the API 3 QNRG 
 
 <img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
 
-
-
 ## Multiplayer Mode 
-- The multiplayer works just like the single player mode. The difference is that you get to share the fun with someone else.
+- The multiplayer works just like the single-player mode. The difference is that you get to share the fun with someone else.
 - Start by topping up your staking balance. This is simply increasing your spending cap. 
 
 ### - Invite player
