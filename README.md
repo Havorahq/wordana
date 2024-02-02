@@ -1,7 +1,7 @@
 # Wordana - Web Application Game
 
 ## Link to Wordana Game: (https://wordana.vercel.app)
-## Video presentation Link: ([link](https://youtu.be/3-yLP3fqsc8))
+## Video presentation Link: (https://youtu.be/3-yLP3fqsc8)
 ## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
 #### Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
 #### Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
@@ -177,8 +177,6 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ![image](https://github.com/Havorahq/wordana/assets/36278808/95d14bff-475d-4506-99db-354810a65c73)
 
-
-<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
 ## License
 
