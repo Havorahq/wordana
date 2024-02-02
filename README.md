@@ -103,8 +103,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Game Hints](/public/images/game_hints.png)
 
 
-- Once you approve the transaction, the game is all yours. Take your shot at guessing the word in 5 tries and claim your WRD token reward when you win. Quick heads up though, the game is pretty addictive, fair warning!
-
+- Once you approve the transaction, the game is all yours. Take your shot at guessing the word in 5 tries and claim your WRD token reward when you win.
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
 
 
