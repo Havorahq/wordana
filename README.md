@@ -89,7 +89,7 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Game Mode](/public/images/game_mode.png)
 
 
-### Select a new game or daily word.
+- Now, you've got choices. You can either dive into a new game to earn some WRD tokens or test the waters by playing the word of the day to get the hang of things. It's all up to you. Let’s start a new game.
 
 ![Single Player Mode](/public/images/single_player.png)
 
