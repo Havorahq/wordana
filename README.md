@@ -1,10 +1,23 @@
 # Wordana - Web Application Game
 
+## Link to Wordana Game: (https://wordana.vercel.app)
+## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+
 ## Overview
 
-Wordana is a web3-based application that combines word guessing and blockchain technology. Users can enjoy a word guessing game to win WRD tokens. The game offers both single-player and multiplayer modes.
+Wordana is a wordle game that is built on the Lightlink blockchain network. The game makes use of the API 3 Quantum Random Number Generator protocol to whip up a collection of random words. Players then take their shot at guessing these words within a specified number of attempts. The best part? Thanks to Lightlink's gasless technology seamlessly integrated into Wordana, you get to experience all the wordle fun without the hassle of gas fees.
 
-Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+### The Problem 
+
+Many gamers and game developers avoid blockchain-based games due to high gas fees. You cannot really blame them. Paying real money for each gaming transaction is a real buzzkill.
+
+### Visualisation of the Solution
+
+Imagine having endless gaming sessions, maybe even sharing the fun with friends from afar. What if you could compete with friends across the miles, all on the blockchain, and guess what? No need to worry about those pesky gas fees. That's where Wordana comes in, seamlessly integrating Lightlink's gasless technology to make all this gaming magic a reality.
+
+### The Strategy 
+
+We leveraged the Enterprise Mode of the Lightlink blockchain technology and the API 3 QRNG to create an addictive wordle game called Wordana. 
 
 ## Technologies Used
 
@@ -22,7 +35,7 @@ Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (version 14+)
-- npm or yarn
+- npm 
 
 ### Steps
 
@@ -38,33 +51,14 @@ Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
     npm install
     ```
 
-    or
-
-    ```bash
-    yarn install
-    ```
-
-3. Configure environment:
-
-    Create a `.env` file with the following content:
-
-    ```env
-    REACT_APP_RPC_URL=https://mainnet.infura.io/v3/YOUR_INFURA_API_KEY
-    CONTRACT_ADDRESS=0x... # replace with your smart contract address
-    ```
-
-4. Start development server:
+    
+3. Start development server:
 
     ```bash
     npm run dev
     ```
 
-    or
-
-    ```bash
-    yarn dev
-    ```
-
+  
 ## Deployment
 
 The application can be deployed to Vercel or Netlify using their respective deployment commands. Refer to their documentation for specific instructions.
@@ -81,6 +75,8 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ### Single Player Mode
 
+- Connect your wallet
+- Click on "Start Playing"
 - Select a new game or daily word.
 - Have 5 chances to guess the correct 5-letter word.
 - Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
@@ -129,13 +125,14 @@ Below are images illustrating different aspects of the Wordana web application.
 
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
 
+### Multiplayer Mode - Game Play
+
+![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
+
 ###  Game Play
 
 <img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
 
-### Multiplayer Mode - Game Play
-
-![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
 ###  Mode - Guess Right
 <img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
@@ -156,7 +153,8 @@ Below are images illustrating different aspects of the Wordana web application.
 
 <img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
-
+### Results from scanning the main smart contract and token smart contract
+<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
 ## License
 
