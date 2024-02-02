@@ -147,11 +147,11 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="Screenshot 2024-02-02 at 8 52 17 PM" src="https://github.com/Havorahq/wordana/assets/36278808/a62ccc82-3423-4e61-9b0c-dd69b3ca2c95">
 
 
-### Input a valid wallet address
+- Input your opponents wallet Address
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
 
-### Both players start the game together.
+- Both players start the game together.
 - Once the other player accepts your invite, it's game on, and the ultimate winner grabs it all.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
