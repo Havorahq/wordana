@@ -73,10 +73,16 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 - Users are prompted to connect their wallet.
 
+
+
 ### Single Player Mode
 
 - Connect your wallet
+    <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
+    
 - Click on "Start Playing"
+  ![Home Page](/public/images/home_page.png)
+
 - Select a new game or daily word.
 - Have 5 chances to guess the correct 5-letter word.
 - Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
@@ -98,7 +104,7 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ### Home Page
 
-![Home Page](/public/images/home_page.png)
+
 
 ### Game Mode
 
