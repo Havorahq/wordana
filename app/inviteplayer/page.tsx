@@ -41,7 +41,6 @@ const InvitePlayer = () => {
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
   const displayValue = realTokenValue.toNumber();
-  console.log(displayValue, "safeAllowanceData");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

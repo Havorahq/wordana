@@ -76,8 +76,6 @@ const Game = () => {
     });
   };
 
-  console.log({ wordToGuess });
-
   useContractEvent({
     address: CONTRACT_ADDRESS,
     abi: CONTRACT_ABI,
@@ -148,20 +146,18 @@ const Game = () => {
     abi: CONTRACT_ABI,
     eventName: "gameDrawn",
     listener: (eventNumber) => {
-      console.log('eve')
       const eventNum = eventNumber[0] as any;
       const address1 = eventNum?.args?.player1Address;
       if (address1 === player1Address) {
         setMessage("it's a draw");
         setGameStatus("view result");
         setIsDraw(true);
-        gameConcluded.current = true
+        gameConcluded.current = true;
       }
     },
   });
 
   const submitGame = (guessIndex: number) => {
-    console.log(guessIndex, 'the guess index')
     submitScore({
       args: [player1Address, guessIndex, "password"],
     });
@@ -197,9 +193,9 @@ const Game = () => {
       const newGuess: Guess = { wordGuessed: currentGuess };
       prevGuesses.push(newGuess);
       setGuesses(prevGuesses);
-      const cGuess = currentGuess
+      const cGuess = currentGuess;
       setCurrentGuess("");
-      if(cGuess !== wordToGuess){
+      if (cGuess !== wordToGuess) {
         setGuessesMade((preVal) => preVal + 1);
       }
     } else {
