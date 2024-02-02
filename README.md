@@ -131,23 +131,23 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 - The multiplayer works just like the single-player mode. The difference is that you get to share the fun with someone else.
 - Start by topping up your staking balance. This is simply increasing your spending cap. 
 
-### - Invite player
+#### - Invite player
 
 ![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/edf687d7-685d-4c6c-b5d5-1024a6be2ac7)
 
 
 
-### Input a valid wallet address and stake a WRD token.
+#### Input the wallet of your chosen player and the amount you wish to stake
 
 ![Multiplayer Mode - Invite](/public/images/multi_player.png)
 
 
-### Join game
+#### Join game
 
 <img width="1440" alt="Screenshot 2024-02-02 at 8 52 17 PM" src="https://github.com/Havorahq/wordana/assets/36278808/a62ccc82-3423-4e61-9b0c-dd69b3ca2c95">
 
 
-- Input your opponents wallet Address
+#### Input your opponent's wallet Address
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
 
@@ -156,20 +156,20 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
-### Player Wait
+#### Player Wait
 
 
 <img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
 
 
 
-### The first to guess the right word wins the staked token.
+#### The first to guess the right word wins the staked token.
 
 <img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
 
 
 
-### If no one guesses the right word, there is no winner.
+#### If no one guesses the right word, there is no winner.
 
 
 
