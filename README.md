@@ -77,15 +77,31 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ### Single Player Mode
 
-- Connect your wallet
-    <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
+# Connect your wallet
+  
+<img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
     
-- Click on "Start Playing"
-  ![Home Page](/public/images/home_page.png)
+    
+# Click on "Start Playing"
+  
+![Home Page](/public/images/home_page.png)
+  
 
-- Select a new game or daily word.
-- Have 5 chances to guess the correct 5-letter word.
-- Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+#  Select a new game or daily word.
+
+![Single Player Mode](/public/images/single_player.png)
+
+  
+#  Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+
+![Game Hints](/public/images/game_hints.png)
+
+
+# Have 5 chances to guess the correct 5-letter word.
+
+<img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
+
+
 
 ### Multiplayer Mode
 
@@ -112,7 +128,7 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ### Single Player Mode
 
-![Single Player Mode](/public/images/single_player.png)
+
 
 ### Multiplayer Mode - Invite
 
@@ -125,11 +141,11 @@ Below are images illustrating different aspects of the Wordana web application.
 
 ### Game Hints
 
-![Game Hints](/public/images/game_hints.png)
+
 
 ###  Game Interface
 
-<img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
+
 
 ### Multiplayer Mode - Game Play
 
