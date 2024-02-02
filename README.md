@@ -1,9 +1,11 @@
 # Wordana - Web Application Game
 
-## Link to Wordana Game: (https://wordana.vercel.app)
-## Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
-## Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
-## Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
+#### Link to Wordana Game: (https://wordana.vercel.app)
+#### Video presentation Link: (https://youtu.be/3-yLP3fqsc8)
+#### Smart contract repo: (https://github.com/Havorahq/wordana-smart-contract)
+#### Verified main smart contract on blockscout: (https://pegasus.lightlink.io/address/0x860ae36B8F6eEE7FEc5Fe15febEE9FD936f36303)
+#### Verified WRD token smart contract on blockscout: (https://pegasus.lightlink.io/token/0x34eb0F4a039532C584647962A041D841094e20B9?tab=contract)
+
 
 ## Overview
 
@@ -73,16 +75,14 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ### Home Page
 
-- Users are prompted to connect their wallet.
-
-
-
 ### Connect your wallet
+- Start by connecting your wallet; Wordana plays nice with all crypto wallets.
   
 <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
     
     
 ### Click on "Start Playing"
+- After linking your wallet, just give the "start playing" button a tap, and you're off to the game menu. From there, simply choose your play mode – for now, let's go with Single Player. 
   
 ![Home Page](/public/images/home_page.png)
 
@@ -96,13 +96,14 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Single Player Mode](/public/images/single_player.png)
 
   
-###  Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+ 
+- Here's the rules of the game and how it works. Always handy for first time players. All you need to do at this point is to initialise the game.
+- Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
 
 ![Game Hints](/public/images/game_hints.png)
 
 
-### Have 5 chances to guess the correct 5-letter word.
-
+- Once you approve the transaction, the game is all yours. Take your shot at guessing the word in 5 tries and claim your WRD token reward when you win.
 <img width="1440" alt="game_interface" src="https://github.com/Havorahq/wordana/assets/36278808/c51c5df5-293b-41cf-a426-ab24ad0af86e">
 
 
@@ -111,63 +112,64 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 <img width="1440" alt="game_play" src="https://github.com/Havorahq/wordana/assets/36278808/aaeee462-1ec5-4e19-9508-bfb427e09697">
 
 
- ### Right Guess
+- This is how it looks like when you guess the word correctly.
  
 <img width="1438" alt="Screenshot 2024-02-01 at 10 18 08 PM" src="https://github.com/Havorahq/wordana/assets/36278808/b9c1a64d-2d8b-4cf9-ba42-f6fe4137e8c3">
 
 
-### Single Game Play - You Won
+- This is how it looks like when you win. You can claim your reward afterward
 
 <img width="1440" alt="you_won" src="https://github.com/Havorahq/wordana/assets/36278808/c882ed80-c9dc-4c52-9109-3dfeb1dc3035">
 
 
-### Single Game Play - You Lost
+- This is how it looks like when you lose. You can replay but you get to predict another random word provided by the API 3 QNRG 
 
 <img width="1440" alt="you_lost" src="https://github.com/Havorahq/wordana/assets/36278808/55f852e5-e01c-4a53-8d66-b652cfda423e">
 
 
-
-
 ## Multiplayer Mode 
+- The multiplayer works just like the single-player mode. The difference is that you get to share the fun with someone else.
+- Start by topping up your staking balance. This is simply increasing your spending cap. 
 
-### - Invite player
+#### - Invite player
 
 ![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/edf687d7-685d-4c6c-b5d5-1024a6be2ac7)
 
 
 
-### Input a valid wallet address and stake a WRD token.
+#### Input the wallet of your chosen player and the amount you wish to stake
 
 ![Multiplayer Mode - Invite](/public/images/multi_player.png)
 
 
-### Join game
+#### Join game
 
 <img width="1440" alt="Screenshot 2024-02-02 at 8 52 17 PM" src="https://github.com/Havorahq/wordana/assets/36278808/a62ccc82-3423-4e61-9b0c-dd69b3ca2c95">
 
 
-### Input a valid wallet address
+#### Input your opponent's wallet Address
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
 
-### Both players start the game together.
+- Both players start the game together.
+- Once the other player accepts your invite, it's game on, and the ultimate winner grabs it all.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
 
-### Player Wait
+#### Player Wait
 
 
 <img width="1440" alt="opp_wait" src="https://github.com/Havorahq/wordana/assets/36278808/a7485357-a92e-43ec-86db-87bce260ce27">
 
 
 
-### The first to guess the right word wins the staked token.
+#### The first to guess the right word wins the staked token.
 
 <img width="1440" alt="multi_win" src="https://github.com/Havorahq/wordana/assets/36278808/3eda752f-9798-4a3d-8a6a-46854904c547">
 
 
 
-### If no one guesses the right word, there is no winner.
+#### If no one guesses the right word, there is no winner.
 
 
 
@@ -175,8 +177,6 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ![image](https://github.com/Havorahq/wordana/assets/36278808/95d14bff-475d-4506-99db-354810a65c73)
 
-
-<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
 
 ## License
 
