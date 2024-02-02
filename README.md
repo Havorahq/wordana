@@ -96,8 +96,9 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ![Single Player Mode](/public/images/single_player.png)
 
   
-###  Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
+ 
 - Here's the rules of the game and how it works. Always handy for first time players. All you need to do at this point is to initialise the game.
+- Hints provided: Green tile (correct letter and place), Yellow tile (correct letter but wrong place), White tile (incorrect letter).
 
 ![Game Hints](/public/images/game_hints.png)
 
