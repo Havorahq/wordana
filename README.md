@@ -94,6 +94,10 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 ## Images
 
+### Results from scanning the main smart contract and token smart contract
+<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
+
+
 Below are images illustrating different aspects of the Wordana web application.
 
 ### Home Page
