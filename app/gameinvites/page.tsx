@@ -86,7 +86,6 @@ const GameInvites = () => {
   const bigintValue = new BigNumber(allowanceData);
   const realTokenValue = bigintValue.div(BigNumber(10).exponentiatedBy(18));
   const displayValue = realTokenValue.toNumber();
-  console.log(displayValue, "safeAllowanceData");
 
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -115,10 +114,6 @@ const GameInvites = () => {
       });
     }
   };
-
-  // const increaseCap = async () => {
-  //   console.log("Cap increased");
-  // };
   return (
     <div>
       <Header />
