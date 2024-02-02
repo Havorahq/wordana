@@ -75,8 +75,6 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 
 
-## Single Player Mode
-
 ### Connect your wallet
   
 <img width="1437" alt="Screenshot 2024-02-02 at 8 57 01 PM" src="https://github.com/Havorahq/wordana/assets/36278808/ef839337-b0cc-4514-84da-61ac736f3ede">
@@ -85,7 +83,11 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 ### Click on "Start Playing"
   
 ![Home Page](/public/images/home_page.png)
-  
+
+### Single Player Mode
+
+![Game Mode](/public/images/game_mode.png)
+
 
 ### Select a new game or daily word.
 
@@ -103,53 +105,34 @@ We welcome contributions! Please ensure your code adheres to our style guide and
 
 
 
-## Multiplayer Mode
+### Multiplayer Mode - Invite player
 
-- Input a valid wallet address and stake a WRD token.
-- Both players start the game together.
-- The first to guess the right word wins the staked token.
-- If no one guesses the right word, there is no winner.
-
-## Images
-
-### Results from scanning the main smart contract and token smart contract
-<img width="726" alt="Screenshot 2024-02-02 at 12 30 11" src="https://github.com/Havorahq/wordana/assets/64712003/1bf7ebab-f644-4a6c-a2e6-9f035ee31d30">
+![Screenshot 2024-02-02 at 8 51 41 PM](https://github.com/Havorahq/wordana/assets/36278808/c58c069e-84f7-41a2-8e8d-d0b2c1499d7f)
 
 
-Below are images illustrating different aspects of the Wordana web application.
-
-### Home Page
-
-
-
-### Game Mode
-
-![Game Mode](/public/images/game_mode.png)
-
-### Single Player Mode
-
-
-
-### Multiplayer Mode - Invite
+### Input a valid wallet address and stake a WRD token.
 
 ![Multiplayer Mode - Invite](/public/images/multi_player.png)
 
-### Multiplayer Mode - Join Game
 
+### Multiplayer Mode - Join game
+
+<img width="1440" alt="Screenshot 2024-02-02 at 8 52 17 PM" src="https://github.com/Havorahq/wordana/assets/36278808/a62ccc82-3423-4e61-9b0c-dd69b3ca2c95">
+
+
+### Input a valid wallet address
 ![Multiplayer Mode - Join Game](/public/images/join_game.png)
 
 
-### Game Hints
-
-
-
-###  Game Interface
-
-
-
-### Multiplayer Mode - Game Play
+### Both players start the game together.
 
 ![Multiplayer Mode - Game Play](/public/images/multi_game_play.png)
+
+- The first to guess the right word wins the staked token.
+- If no one guesses the right word, there is no winner.
+
+
+
 
 ###  Game Play
 
